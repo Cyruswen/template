@@ -11,6 +11,7 @@ $config = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
+        '@component' => '@app/components',
     ],
     'components' => [
         'request' => [
@@ -44,9 +45,6 @@ $config = [
             ],
         ],
         'db' => $db,
-        'aliases' => [
-            '@components' => '@app/components'
-        ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
