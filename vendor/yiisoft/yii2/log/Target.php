@@ -74,12 +74,12 @@ abstract class Target extends Component
      * @see \yii\helpers\ArrayHelper::filter()
      */
     public $logVars = [
-        '_GET',
-        '_POST',
-        '_FILES',
-        '_COOKIE',
-        '_SESSION',
-        '_SERVER',
+       // '_GET',
+       // '_POST',
+       // '_FILES',
+       // '_COOKIE',
+       // '_SESSION',
+       // '_SERVER',
     ];
     /**
      * @var array list of the PHP predefined variables that should NOT be logged "as is" and should always be replaced

@@ -561,4 +561,24 @@ class BaseYii
     {
         return get_object_vars($object);
     }
+
+    public static function log($logInfo, $level)
+    {
+        $arrDebugTrack = debug_backtrace();
+        $last = end($arrDebugTrack);
+        $method = $last['function'];
+        $logInfo['line'] = $last['line'];
+        switch ($level)
+        {
+            case 'info':
+                self::info(json_encode($logInfo, JSON_UNESCAPED_UNICODE), $method);
+                break;
+            case 'warning':
+                self::warning(json_encode($logInfo, JSON_UNESCAPED_UNICODE), $method);
+                break;
+            case 'error':
+                self::error(json_encode($logInfo, JSON_UNESCAPED_UNICODE), $method);
+                break;
+        }
+    }
 }
