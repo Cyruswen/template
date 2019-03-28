@@ -44,6 +44,9 @@ $config = [
             ],
         ],
         'db' => $db,
+        'aliases' => [
+            '@components' => '@app/components'
+        ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
