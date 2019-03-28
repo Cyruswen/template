@@ -567,7 +567,6 @@ class BaseYii
         $arrDebugTrack = debug_backtrace();
         $last = end($arrDebugTrack);
         $method = $last['function'];
-        $logInfo['line'] = $last['line'];
         switch ($level)
         {
             case 'info':
