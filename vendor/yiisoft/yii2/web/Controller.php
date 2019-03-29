@@ -10,6 +10,7 @@ namespace yii\web;
 use Yii;
 use yii\base\InlineAction;
 use yii\helpers\Url;
+use Flogger;
 
 /**
  * Controller is the base class of web controllers.

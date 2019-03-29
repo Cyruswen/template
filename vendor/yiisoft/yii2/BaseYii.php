@@ -565,8 +565,9 @@ class BaseYii
     public static function log($logInfo, $level)
     {
         $arrDebugTrack = debug_backtrace();
-        $last = end($arrDebugTrack);
-        $method = $last['function'];
+       // $last = end($arrDebugTrack);
+        $last = $arrDebugTrack[3];
+        $method = $last['functiocon'];
         switch ($level)
         {
             case 'info':

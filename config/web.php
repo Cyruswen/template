@@ -1,6 +1,7 @@
 <?php
 
 Yii::$classMap['Flogger'] = '@app/components/Flogger.php';
+Yii::$classMap['GraduationProjectBaseController'] = '@app/components/GraduationProjectBaseController.php';
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
@@ -45,14 +46,13 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'api/android/<controller:\w+>/<action:\w+>'   => 'api/android/<controller>/<action>',
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
