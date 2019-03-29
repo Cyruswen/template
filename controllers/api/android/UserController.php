@@ -16,5 +16,8 @@ use Flogger;
 
 class UserController extends GraduationProjectBaseController
 {
+    public function actionGetInfo()
+    {
 
+    }
 }
