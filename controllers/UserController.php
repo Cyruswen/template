@@ -6,7 +6,7 @@
  * Time: 14:24
  */
 
-namespace app\controllers\api;
+namespace app\controllers;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
