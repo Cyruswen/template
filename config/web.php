@@ -50,7 +50,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'api/android/<controller:\w+>/<action:\w+>'   => 'api/android/<controller>/<action>',
+                'api/<controller:\w+>/<action:\w+>'   => 'api/<controller>/<action>',
             ],
         ],
     ],

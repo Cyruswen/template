@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec01d749-ebfe-4d14-9939-7241c1ee6e10" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/controllers/api/android/UserController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/UserController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/api/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/yiisoft/yii2/web/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/yiisoft/yii2/web/Controller.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +18,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/SiteController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="50">
@@ -39,17 +42,17 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="3" column="106" lean-forward="true" selection-start-line="3" selection-start-column="106" selection-end-line="3" selection-end-column="106" />
+            <state relative-caret-position="475">
+              <caret line="52" column="62" lean-forward="true" selection-start-line="52" selection-start-column="62" selection-end-line="52" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/UserController.php">
+        <entry file="file://$PROJECT_DIR$/controllers/api/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="100">
               <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
@@ -72,8 +75,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/GraduationProjectBaseController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+            <state relative-caret-position="164">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
@@ -90,8 +93,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/web/Controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-36">
-              <caret line="22" column="40" lean-forward="true" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+            <state relative-caret-position="189">
+              <caret line="166" column="23" selection-start-line="166" selection-start-column="23" selection-end-line="166" selection-end-column="23" />
               <folding>
                 <element signature="e#172#180#0#PHP" expanded="true" />
               </folding>
@@ -132,12 +135,12 @@
         <option value="$PROJECT_DIR$/components/Flogger.php" />
         <option value="$PROJECT_DIR$/controllers/SiteController.php" />
         <option value="$PROJECT_DIR$/vendor/yiisoft/yii2/BaseYii.php" />
-        <option value="$PROJECT_DIR$/vendor/yiisoft/yii2/web/Controller.php" />
         <option value="$PROJECT_DIR$/vendor/yiisoft/yii2/console/Controller.php" />
         <option value="$PROJECT_DIR$/components/GraduationProjectBaseController.php" />
-        <option value="$PROJECT_DIR$/config/web.php" />
         <option value="$PROJECT_DIR$/controllers/api/android/UserController.php" />
         <option value="$PROJECT_DIR$/controllers/UserController.php" />
+        <option value="$PROJECT_DIR$/vendor/yiisoft/yii2/web/Controller.php" />
+        <option value="$PROJECT_DIR$/config/web.php" />
       </list>
     </option>
   </component>
@@ -263,6 +266,12 @@
             <path>
               <item name="fastopen" type="b2602c69:ProjectViewProjectNode" />
               <item name="fastopen" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fastopen" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fastopen" type="462c0819:PsiDirectoryNode" />
               <item name="mail" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -299,6 +308,7 @@
       <recent name="E:\BS\fastopen\controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\BS\fastopen\controllers\api" />
       <recent name="E:\BS\fastopen\controllers\api\Android" />
     </key>
   </component>
@@ -330,18 +340,18 @@
       <workItem from="1553743894415" duration="1669000" />
       <workItem from="1553751615280" duration="7984000" />
       <workItem from="1553760142374" duration="9544000" />
-      <workItem from="1553829183290" duration="4813000" />
+      <workItem from="1553829183290" duration="6153000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27015000" />
+    <option name="totallyTimeSpent" value="28355000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27416918" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.27416918" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -612,16 +622,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/web/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-36">
-          <caret line="22" column="40" lean-forward="true" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
-          <folding>
-            <element signature="e#172#180#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/Flogger.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
@@ -640,13 +640,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="76" column="22" selection-start-line="76" selection-start-column="22" selection-end-line="76" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/GraduationProjectBaseController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -670,14 +663,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="106" lean-forward="true" selection-start-line="3" selection-start-column="106" selection-end-line="3" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/UserController.php">
+    <entry file="file://$PROJECT_DIR$/controllers/api/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
@@ -694,6 +680,37 @@
           <folding>
             <element signature="e#35#43#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/web/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="166" column="23" selection-start-line="166" selection-start-column="23" selection-end-line="166" selection-end-column="23" />
+          <folding>
+            <element signature="e#172#180#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_5.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="1057" column="9" selection-start-line="1057" selection-start-column="9" selection-end-line="1057" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/GraduationProjectBaseController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="52" column="62" lean-forward="true" selection-start-line="52" selection-start-column="62" selection-end-line="52" selection-end-column="62" />
         </state>
       </provider>
     </entry>
