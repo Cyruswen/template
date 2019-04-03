@@ -17,7 +17,20 @@ use Flogger;
 class UserController extends GraduationProjectBaseController
 {
 
-    public function actionGetInfo()
+    /**
+     * author: wenkaikai
+     * desc: 用户注册接口
+     */
+    public function actionRegister()
+    {
+
+    }
+
+    /**
+     * author: wenkaikai
+     * desc: 用户登录接口
+     */
+    public function actionLogin()
     {
 
     }
