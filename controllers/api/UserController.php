@@ -13,6 +13,8 @@ use yii\web\Controller;
 use yii\web\Response;
 use GraduationProjectBaseController;
 use Flogger;
+//use UserService;
+use app\domain\UserService;
 
 class UserController extends GraduationProjectBaseController
 {
@@ -23,7 +25,15 @@ class UserController extends GraduationProjectBaseController
      */
     public function actionRegister()
     {
-
+        $userService = new UserService();
+        $checkFiled = ['userName', 'passWord'];
+        $result = $userService->checkParams($checkFiled, $this->params);
+        if (!$result) {
+            $this->response = [
+                'code'   => -1,
+                'reason' => '缺少必须字段',
+            ];
+        }
     }
 
     /**
@@ -34,4 +44,6 @@ class UserController extends GraduationProjectBaseController
     {
 
     }
+
+
 }

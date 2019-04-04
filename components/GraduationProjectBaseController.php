@@ -26,7 +26,7 @@ class GraduationProjectBaseController extends \yii\web\Controller
         $responseData = [
             'code'   => 200,
             'status' => 'success',
-            'data'   => $this->response,
+            'bizData'   => $this->response,
         ];
         return $responseData;
     }
