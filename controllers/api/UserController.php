@@ -13,8 +13,8 @@ use yii\web\Controller;
 use yii\web\Response;
 use GraduationProjectBaseController;
 use Flogger;
-//use UserService;
 use app\domain\UserService;
+use BsEnum;
 
 class UserController extends GraduationProjectBaseController
 {
@@ -26,12 +26,12 @@ class UserController extends GraduationProjectBaseController
     public function actionRegister()
     {
         $userService = new UserService();
-        $checkFiled = ['userName', 'passWord'];
+        $checkFiled = ['userName', 'password'];
         $result = $userService->checkParams($checkFiled, $this->params);
         if (!$result) {
             $this->response = [
-                'code'   => -1,
-                'reason' => '缺少必须字段',
+                'code'   => BsEnum::ERROR_CODE,
+                'reason' => BsEnum::$codeMap[BsEnum::ERROR_CODE],
             ];
         }
     }
