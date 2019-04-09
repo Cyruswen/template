@@ -30,10 +30,11 @@ class UserController extends GraduationProjectBaseController
         $result = $userService->checkParams($checkFiled, $this->params);
         if (!$result) {
             $this->response = [
-                'code'   => BsEnum::ERROR_CODE,
-                'reason' => BsEnum::$codeMap[BsEnum::ERROR_CODE],
+                'code'   => BsEnum::PARAMS_ERROR_CODE,
+                'reason' => BsEnum::$codeMap[BsEnum::PARAMS_ERROR_CODE],
             ];
         }
+        
     }
 
     /**
@@ -42,7 +43,27 @@ class UserController extends GraduationProjectBaseController
      */
     public function actionLogin()
     {
-
+        $userService = new UserService();
+        $checkFiled = ["userName", "password", "phone", "email"];
+        //校验参数是否为空
+        $result = $userService->checkParams($checkFiled, $this->params);
+        if (!$result) {
+            $this->response = [
+                'code'   => BsEnum::PARAMS_ERROR_CODE,
+                'reason' => BsEnum::$codeMap[BsEnum::PARAMS_ERROR_CODE],
+            ];
+            return;
+        }
+        //校验参数是否合法
+        $failCode = 0;
+        $checkRet = $userService->checkLoginParams($this->params, $failCode);
+        if (!$checkRet) {
+            $this->response = [
+                'code'   => $failCode,
+                'reason' => BsEnum::$codeMap[$failCode],
+            ];
+            return;
+        }
     }
 
 
