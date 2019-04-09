@@ -44,7 +44,7 @@ class UserController extends GraduationProjectBaseController
     public function actionRegister()
     {
         $userService = new UserService();
-        $checkFiled = ["userName", "password", "phone", "email"];
+        $checkFiled = ["userName", "password", "userPhone", "userEmail"];
         //校验参数是否为空
         $result = $userService->checkParams($checkFiled, $this->params);
         if (!$result) {
