@@ -23,7 +23,7 @@ class UserController extends GraduationProjectBaseController
      * author: wenkaikai
      * desc: 用户注册接口
      */
-    public function actionRegister()
+    public function actionLogin()
     {
         $userService = new UserService();
         $checkFiled = ['userName', 'password'];
@@ -41,7 +41,7 @@ class UserController extends GraduationProjectBaseController
      * author: wenkaikai
      * desc: 用户登录接口
      */
-    public function actionLogin()
+    public function actionRegister()
     {
         $userService = new UserService();
         $checkFiled = ["userName", "password", "phone", "email"];

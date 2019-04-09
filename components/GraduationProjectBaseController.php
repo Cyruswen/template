@@ -28,6 +28,7 @@ class GraduationProjectBaseController extends \yii\web\Controller
             'status' => 'success',
             'bizData'   => $this->response,
         ];
+        Flogger::info('响应参数' . json_encode($responseData));
         return $responseData;
     }
 }

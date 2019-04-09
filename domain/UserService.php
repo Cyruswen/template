@@ -33,14 +33,33 @@ class UserService
     {
         $mobile = $params['userPhone'];
         $userName = $params['userName'];
+        $password = $params['password'];
+        $email = $params['userEmail'];
         $retCheckMobile = Util::isValidMobile($mobile);
+        //校验用户手机号
         if (!$retCheckMobile) {
              $failCode = BsEnum::UN_VALID_MOBILE;
              return false;
         }
+        //校验用户名
         $retCheckUserName = Util::isValidUserName($userName);
         if (!$retCheckUserName) {
-            $failCode = BsEnum::UN_VALID_MOBILE;
+            $failCode = BsEnum::UN_VALID_USERNAME;
+            return false;
+        }
+        //校验密码是否正确
+        $retCheckPassword = Util::isVaildPassword($password);
+        if ($retCheckPassword == BsEnum::UN_VALID_PASSLEN) {
+            $failCode = BsEnum::UN_VALID_PASSLEN;
+            return false;
+        } elseif ($retCheckPassword == BsEnum::UN_VALID_PASSWORD) {
+            $failCode = BsEnum::UN_VALID_PASSWORD;
+            return false;
+        }
+        //校验邮箱是否合法
+        $retCheckEmail = Util::isVaildEmail($email);
+        if (!$retCheckEmail) {
+            $failCode = BsEnum::UN_VALID_EMAIL;
             return false;
         }
         return true;

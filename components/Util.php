@@ -6,7 +6,6 @@
  * Time: 21:36
  */
 
-
 class Util
 {
     /**
@@ -42,6 +41,40 @@ class Util
         }
         $userName = str_replace('·', '', $userName);
         if (!preg_match("/^[\x{4e00}-\x{9fa5}]+$/u", $userName)) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * @param $password
+     * @return false|int
+     * @desc 校验密码(最少六位, 必须包含大写字母小写字母和数字)
+     */
+    public static function isVaildPassword($password)
+    {
+        if (mb_strlen($password) < 6) {
+            return BsEnum::UN_VALID_PASSLEN;
+        }
+        $result = preg_match( '/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?!.*\s)/', $password);
+        if ($result == 0) {
+            return BsEnum::UN_VALID_PASSWORD;
+        }
+        return true;
+    }
+
+    /**
+     * @param $email
+     * @return bool
+     * @desc 判断邮箱是否合法
+     */
+    public static function isVaildEmail($email)
+    {
+        if (empty($email)) {
+            return false;
+        }
+        $ret = strstr($email, '@');
+        if ($ret === false) {
             return false;
         }
         return true;
