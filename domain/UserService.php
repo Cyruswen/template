@@ -49,10 +49,10 @@ class UserService
         }
         //校验密码是否正确
         $retCheckPassword = Util::isVaildPassword($password);
-        if ($retCheckPassword == BsEnum::UN_VALID_PASSLEN) {
+        if ($retCheckPassword === BsEnum::UN_VALID_PASSLEN) {
             $failCode = BsEnum::UN_VALID_PASSLEN;
             return false;
-        } elseif ($retCheckPassword == BsEnum::UN_VALID_PASSWORD) {
+        } elseif ($retCheckPassword === BsEnum::UN_VALID_PASSWORD) {
             $failCode = BsEnum::UN_VALID_PASSWORD;
             return false;
         }
