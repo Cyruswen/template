@@ -53,7 +53,7 @@ class Util
      */
     public static function isVaildPassword($password)
     {
-        if (mb_strlen($password) < 6) {
+        if (strlen($password) < 6) {
             return BsEnum::UN_VALID_PASSLEN;
         }
         $result = preg_match( '/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?!.*\s)/', $password);
