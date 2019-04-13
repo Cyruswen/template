@@ -21,7 +21,7 @@ class UserService
     public function checkParams($checkFiled, $params)
     {
         foreach ($checkFiled as $value) {
-            if (empty($params[$value])) {
+            if (!isset($params[$value]) || empty($params[$value])) {
                 Flogger::warning("缺少参数: " . $value);
                 return false;
             }
@@ -29,6 +29,12 @@ class UserService
         return true;
     }
 
+    /**
+     * @param $params
+     * @param $failCode
+     * @return bool
+     * @desc 校验登录参数是否合法
+     */
     public function checkLoginParams($params, &$failCode)
     {
         $mobile = $params['userPhone'];
@@ -63,5 +69,25 @@ class UserService
             return false;
         }
         return true;
+    }
+
+    /**
+     * @param $account
+     * @desc 判断登录时用户输入的类型(电话号, 邮箱, 用户名)
+     */
+    public function judjeLoginType(&$params)
+    {
+        $account = $params['account'];
+        if (is_numeric($account)) {
+            $params['mobile'] = $account;
+            $params['userType'] = BsEnum::MOBILE;
+        } elseif (strstr($account, '@')) {
+            $params['email'] = $account;
+            $params['userType'] = BsEnum::EMAIL;
+        } else {
+            $params['name'] = $account;
+            $params['userType'] = BsEnum::USERNAME;
+        }
+        unset($params['account']);
     }
 }

@@ -5,6 +5,7 @@ Yii::$classMap['GraduationProjectBaseController'] = '@app/components/GraduationP
 Yii::$classMap['UserService'] = '@app/domain/UserService.php';
 Yii::$classMap['BsEnum'] = '@app/enum/BsEnum.php';
 Yii::$classMap['Util'] = '@app/components/Util.php';
+Yii::$classMap['UserModel'] = '@app/models/UserModel.php';
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
@@ -60,7 +61,8 @@ $config = [
     'params' => $params,
 ];
 
-if (YII_ENV_DEV) {
+//if (YII_ENV_DEV) {
+if (false) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [

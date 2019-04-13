@@ -9,6 +9,7 @@
 class Util
 {
     /**
+     * @author wenkaikai
      * @param $mobile
      * @return bool
      * @desc 校验手机号是否合法
@@ -26,6 +27,7 @@ class Util
     }
 
     /**
+     * @author wenkaikai
      * @param $userName
      * @return bool
      * @desc 校验用户姓名是否合法
@@ -47,6 +49,7 @@ class Util
     }
 
     /**
+     * @author wenkaikai
      * @param $password
      * @return false|int
      * @desc 校验密码(最少六位, 必须包含大写字母小写字母和数字)
@@ -64,6 +67,7 @@ class Util
     }
 
     /**
+     * @author wenkaikai
      * @param $email
      * @return bool
      * @desc 判断邮箱是否合法
@@ -81,6 +85,7 @@ class Util
     }
 
     /**
+     * @author wenkaikai
      * @param $userName
      * @param $mobile
      * @return bool|string
@@ -91,5 +96,26 @@ class Util
         $strInfo = $userName . $mobile . time();
         $unique_no = substr(base_convert(md5(uniqid(md5($strInfo),true)), 16, 10), 0, 8);
         return $unique_no;
+    }
+
+    /**
+     * @author wenkaikai
+     * @return string
+     * @desc 用于存储密码之前获取盐值
+     */
+    public static function getSalt()
+    {
+        return base64_encode(uniqid("BS"));
+    }
+
+    /**
+     * @param $password
+     * @param $salt
+     * @return string
+     * @desc 加密密码
+     */
+    public static function passwdEncode($password, $salt)
+    {
+        return sha1($password . $salt);
     }
 }

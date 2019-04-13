@@ -15,6 +15,10 @@ class BsEnum
     const UN_VALID_PASSLEN  = 10004; //密码长度不合法
     const UN_VALID_EMAIL    = 10005; //邮箱不合法
 
+    const MOBILE   = 'mobile';
+    const USERNAME = 'userName';
+    const EMAIL    = 'email';
+
     public static $codeMap = [
         self::PARAMS_ERROR_CODE => '缺少必传字段',
         self::UN_VALID_MOBILE   => '手机号不合法',

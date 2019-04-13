@@ -15,6 +15,7 @@ use GraduationProjectBaseController;
 use Flogger;
 use app\domain\UserService;
 use BsEnum;
+use Util;
 
 class UserController extends GraduationProjectBaseController
 {
@@ -26,7 +27,7 @@ class UserController extends GraduationProjectBaseController
     public function actionLogin()
     {
         $userService = new UserService();
-        $checkFiled = ['userName', 'password'];
+        $checkFiled = ['account', 'password'];
         $result = $userService->checkParams($checkFiled, $this->params);
         if (!$result) {
             $this->response = [
@@ -34,6 +35,7 @@ class UserController extends GraduationProjectBaseController
                 'reason' => BsEnum::$codeMap[BsEnum::PARAMS_ERROR_CODE],
             ];
         }
+        $userService->judjeLoginType($this->params);
         
     }
 
@@ -64,6 +66,7 @@ class UserController extends GraduationProjectBaseController
             ];
             return;
         }
+        //TODO 保存数据
     }
 
 
