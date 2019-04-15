@@ -6,6 +6,7 @@
  * Time: 11:40
  */
 namespace app\domain;
+use app\models\UserModel;
 use Flogger;
 use Util;
 use BsEnum;
@@ -89,5 +90,34 @@ class UserService
             $params['userType'] = BsEnum::USERNAME;
         }
         unset($params['account']);
+    }
+
+    /**
+     * @param $params
+     * @throws \yii\db\Exception
+     */
+    public function saveUserBaseInfo($params)
+    {
+        $table = "user_base";
+        $saveData = $this->formUserData($params);
+        $saveRes = (new UserModel())->saveBaseInfo($table, $saveData);
+        return $saveRes;
+    }
+
+    /**
+     * @desc 格式化用户信息
+     */
+    private function formUserData($params)
+    {
+        $saveData = [
+            'uid'       => $params['uid'],
+            'user_name' => $params['userName'],
+            'password'  => $params['password'],
+            'mobile'    => $params['userPhone'],
+            'email'     => $params['userEmail'],
+            'salt'      => $params['salt'],
+            'update_time' => time(),
+        ];
+        return $saveData;
     }
 }

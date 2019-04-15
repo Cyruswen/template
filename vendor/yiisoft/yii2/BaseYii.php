@@ -566,18 +566,18 @@ class BaseYii
     {
         $arrDebugTrack = debug_backtrace();
        // $last = end($arrDebugTrack);
-        $last = $arrDebugTrack[3];
-        $method = $last['functiocon'];
+       // $last = $arrDebugTrack[3];
+       // $method = $last['functiocon'];
         switch ($level)
         {
             case 'info':
-                self::info(json_encode($logInfo, JSON_UNESCAPED_UNICODE), $method);
+                self::info(json_encode($logInfo, JSON_UNESCAPED_UNICODE));
                 break;
             case 'warning':
-                self::warning(json_encode($logInfo, JSON_UNESCAPED_UNICODE), $method);
+                self::warning(json_encode($logInfo, JSON_UNESCAPED_UNICODE));
                 break;
             case 'error':
-                self::error(json_encode($logInfo, JSON_UNESCAPED_UNICODE), $method);
+                self::error(json_encode($logInfo, JSON_UNESCAPED_UNICODE));
                 break;
         }
     }

@@ -91,7 +91,7 @@ class Util
      * @return bool|string
      * @desc 生成随机的八位用户uid
      */
-    public function generateUid($userName, $mobile)
+    public static function generateUid($userName, $mobile)
     {
         $strInfo = $userName . $mobile . time();
         $unique_no = substr(base_convert(md5(uniqid(md5($strInfo),true)), 16, 10), 0, 8);

@@ -7,7 +7,9 @@
  */
 
 namespace app\controllers\api;
+use app\models\UserModel;
 use Yii;
+use yii\db\Exception;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -66,8 +68,22 @@ class UserController extends GraduationProjectBaseController
             ];
             return;
         }
-        //TODO 保存数据
+        $userName = $this->params['userName'];
+        $mobile   = $this->params['userPhone'];
+        $password = $this->params['password'];
+        //生成uid
+        $this->params['uid'] = Util::generateUid($userName, $mobile);
+        Flogger::$uid = $this->params['uid'];
+        //处理密码数据
+        $salt = Util::getSalt();
+        $this->params['salt'] = $salt;
+        $this->params['password'] = Util::passwdEncode($password, $salt);
+        //保存数据
+        try{
+            $userService->saveUserBaseInfo($this->params);
+        } catch (Exception $e)
+        {
+            Flogger::info('用户信息保存失败!');
+        }
     }
-
-
 }
