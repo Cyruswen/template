@@ -505,7 +505,6 @@ class Command extends Component
 
         $params = [];
         $sql = $this->db->getQueryBuilder()->batchInsert($table, $columns, $rows, $params);
-
         $this->setRawSql($sql);
         $this->bindValues($params);
 

@@ -83,7 +83,12 @@ class UserController extends GraduationProjectBaseController
             $userService->saveUserBaseInfo($this->params);
         } catch (Exception $e)
         {
-            Flogger::info('用户信息保存失败!');
+            Flogger::info('用户信息保存失败!' . 'code: ' . $e->getCode() . 'msg: ' . $e->getMessage());
+            $this->response = [
+                'code'   => BsEnum::SQL_INSERT_FAIL,
+                'reason' => BsEnum::$codeMap[BsEnum::SQL_INSERT_FAIL],
+            ];
+            return;
         }
     }
 }

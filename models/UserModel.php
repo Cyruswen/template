@@ -26,13 +26,17 @@ class UserModel extends ActiveRecord
         if (empty($data) || empty($tableName)) {
             throw new Exception('参数为空');
         }
+        /*
+        //暂时弃用, 批量添加
         $items = [];
         $insertData = [];
         foreach ($data as $key => $value) {
             $items[] = $key;
-            $insertData[] = $value;
+            $ideepnsertData[] = $value;
         }
         Yii::$app->db->createCommand()->batchInsert($tableName, $items, $insertData)->execute();
+        */
+        Yii::$app->db->createCommand()->insert($tableName, $data)->execute();
         return true;
     }
 }

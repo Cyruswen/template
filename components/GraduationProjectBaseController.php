@@ -26,6 +26,7 @@ class GraduationProjectBaseController extends \yii\web\Controller
         $responseData = [
             'code'   => 200,
             'status' => 'success',
+            'uid'    => '123456',
             'bizData'   => $this->response,
         ];
         Flogger::info('响应参数' . json_encode($responseData));
