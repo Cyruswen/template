@@ -49,6 +49,6 @@ class UserModel extends ActiveRecord
     public function getUserInfo($data, $tableName, $item, $value)
     {
         $userInfo = (new Query())->select($data)->from($tableName)->where($item . "='" . $value . "'")->all();
-        return $userInfo;
+        return $userInfo[0];
     }
 }

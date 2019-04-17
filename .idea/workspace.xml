@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec01d749-ebfe-4d14-9939-7241c1ee6e10" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/components/GraduationProjectBaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/GraduationProjectBaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/domain/UserService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/UserModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/UserModel.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/UserModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="39" column="20" lean-forward="true" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+            <state relative-caret-position="368">
+              <caret line="51" column="26" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
               <folding>
                 <element signature="e#110#118#0#PHP" expanded="true" />
               </folding>
@@ -31,8 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/domain/UserService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="146" column="65" selection-start-line="146" selection-start-column="65" selection-end-line="146" selection-end-column="65" />
+            <state relative-caret-position="262">
+              <caret line="146" column="37" selection-start-line="146" selection-start-column="37" selection-end-line="146" selection-end-column="37" />
               <folding>
                 <element signature="e#108#133#0#PHP" expanded="true" />
               </folding>
@@ -41,9 +40,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/Util.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="116" column="49" selection-start-line="116" selection-start-column="40" selection-end-line="116" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/api/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-651">
+            <state relative-caret-position="-1029">
               <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
               <folding>
                 <element signature="e#119#144#0#PHP" expanded="true" />
@@ -52,7 +60,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/GraduationProjectBaseController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="410">
@@ -105,11 +113,11 @@
         <option value="$PROJECT_DIR$/vendor/yiisoft/yii2/db/Command.php" />
         <option value="$PROJECT_DIR$/config/db.php" />
         <option value="$PROJECT_DIR$/components/Util.php" />
-        <option value="$PROJECT_DIR$/models/UserModel.php" />
         <option value="$PROJECT_DIR$/enum/BsEnum.php" />
         <option value="$PROJECT_DIR$/controllers/api/UserController.php" />
-        <option value="$PROJECT_DIR$/domain/UserService.php" />
         <option value="$PROJECT_DIR$/components/GraduationProjectBaseController.php" />
+        <option value="$PROJECT_DIR$/domain/UserService.php" />
+        <option value="$PROJECT_DIR$/models/UserModel.php" />
       </list>
     </option>
   </component>
@@ -299,12 +307,12 @@
       <workItem from="1555118306740" duration="7742000" />
       <workItem from="1555153391500" duration="101000" />
       <workItem from="1555322916216" duration="18400000" />
-      <workItem from="1555471844517" duration="9985000" />
+      <workItem from="1555471844517" duration="11763000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107168000" />
+    <option name="totallyTimeSpent" value="108946000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -687,16 +695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/UserModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="39" column="20" lean-forward="true" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
-          <folding>
-            <element signature="e#110#118#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/enum/BsEnum.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="473">
@@ -704,26 +702,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/Util.php">
+    <entry file="file://$PROJECT_DIR$/components/GraduationProjectBaseController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="116" column="49" selection-start-line="116" selection-start-column="40" selection-end-line="116" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/domain/UserService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="146" column="65" selection-start-line="146" selection-start-column="65" selection-end-line="146" selection-end-column="65" />
-          <folding>
-            <element signature="e#108#133#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="410">
+          <caret line="32" column="80" selection-start-line="32" selection-start-column="80" selection-end-line="32" selection-end-column="80" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/api/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-651">
+        <state relative-caret-position="-1029">
           <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
           <folding>
             <element signature="e#119#144#0#PHP" expanded="true" />
@@ -731,10 +719,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/GraduationProjectBaseController.php">
+    <entry file="file://$PROJECT_DIR$/components/Util.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="32" column="80" selection-start-line="32" selection-start-column="80" selection-end-line="32" selection-end-column="80" />
+        <state relative-caret-position="350">
+          <caret line="116" column="49" selection-start-line="116" selection-start-column="40" selection-end-line="116" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domain/UserService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="146" column="37" selection-start-line="146" selection-start-column="37" selection-end-line="146" selection-end-column="37" />
+          <folding>
+            <element signature="e#108#133#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/UserModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="51" column="26" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+          <folding>
+            <element signature="e#110#118#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
