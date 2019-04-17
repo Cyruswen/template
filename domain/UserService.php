@@ -105,6 +105,18 @@ class UserService
     }
 
     /**
+     * @param $uid
+     * @return array
+     */
+    public function getUserInfoByUid($uid)
+    {
+        $table = "user_base";
+        $data = ['user_name', 'password', 'mobile', 'email', 'salt'];
+        $userInfo = (new UserModel())->getInfoByUid($data, $table, $uid);
+        return $userInfo;
+    }
+
+    /**
      * @desc 格式化用户信息
      */
     private function formUserData($params)

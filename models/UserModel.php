@@ -7,10 +7,10 @@
  */
 
 namespace app\models;
-
-use yii\db\ActiveRecord;
 use Yii;
+use yii\db\ActiveRecord;
 use yii\db\Exception;
+use yii\db\Query;
 
 class UserModel extends ActiveRecord
 {
@@ -38,5 +38,17 @@ class UserModel extends ActiveRecord
         */
         Yii::$app->db->createCommand()->insert($tableName, $data)->execute();
         return true;
+    }
+
+    /**
+     * @param $data
+     * @param $tableName
+     * @param $uid
+     * @return array
+     */
+    public function getInfoByUid($data, $tableName, $uid)
+    {
+        $userInfo = (new Query())->select($data)->from($tableName)->where('uid=:uid', [':uid'=>$uid])->all();
+        return $userInfo;
     }
 }

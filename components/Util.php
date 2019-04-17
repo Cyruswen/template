@@ -93,8 +93,8 @@ class Util
      */
     public static function generateUid($userName, $mobile)
     {
-        $strInfo = $userName . $mobile . time();
-        $unique_no = substr(base_convert(md5(uniqid(md5($strInfo),true)), 16, 10), 0, 8);
+        $strInfo = $userName . $mobile;
+        $unique_no = substr(base_convert(md5($strInfo), 16, 10), 0, 8);
         return $unique_no;
     }
 
