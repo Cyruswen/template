@@ -149,6 +149,7 @@ class UserController extends GraduationProjectBaseController
             return;
         }
         $ret = $userService->getOldPasswdInfoByUid($uid);
+        $password = Util::passwdEncode($password, $ret['salt']);
         if ($password === $ret['password']) {
             $this->response = [
                 'code'   => BsEnum::SAME_PASSWORD,
@@ -156,7 +157,6 @@ class UserController extends GraduationProjectBaseController
             ];
             return;
         }
-        $password = Util::passwdEncode($password, $ret['salt']);
         $updateData = ["password" => $password];
         try{
             $userService->changeUserInfo($updateData, $uid);
