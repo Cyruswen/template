@@ -16,6 +16,8 @@ class BsEnum
     const UN_VALID_EMAIL    = 10005; //邮箱不合法
     const SQL_INSERT_FAIL   = 10006; //数据库操作失败
     const HAS_REGISTER      = 10007; //用户已经注册
+    const USERNAME_HAS_USED = 10008; //用户名已被占用
+    const MOBILE_HAS_USED   = 10009; //手机号已被占用
 
     const MOBILE   = 'mobile';
     const USERNAME = 'userName';
@@ -29,6 +31,8 @@ class BsEnum
         self::UN_VALID_PASSLEN  => '密码长度不合法',
         self::UN_VALID_EMAIL    => '邮箱不合法',
         self::SQL_INSERT_FAIL   => '操作失败',
-        self::HAS_REGISTER      => '用户已注册, 请前往登录'
+        self::HAS_REGISTER      => '用户已注册, 请前往登录',
+        self::USERNAME_HAS_USED => '该用户名已被占用',
+        self::MOBILE_HAS_USED   => '该手机号已被占用',
     ];
 }

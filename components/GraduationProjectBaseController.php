@@ -8,9 +8,10 @@
 
 class GraduationProjectBaseController extends \yii\web\Controller
 {
-    public $params = [];
-    public $response = '';
-    public $input = [];
+    protected $params = [];
+    protected $response = '';
+    protected $input = [];
+    protected $uid;
 
     public function beforeAction($action)
     {
@@ -26,7 +27,7 @@ class GraduationProjectBaseController extends \yii\web\Controller
         $responseData = [
             'code'   => 200,
             'status' => 'success',
-            'uid'    => '123456',
+            'uid'    => $this->uid,
             'bizData'   => $this->response,
         ];
         Flogger::info('响应参数' . json_encode($responseData));

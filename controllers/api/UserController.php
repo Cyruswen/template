@@ -71,20 +71,20 @@ class UserController extends GraduationProjectBaseController
         $userName = $this->params['userName'];
         $mobile   = $this->params['userPhone'];
         $password = $this->params['password'];
+        //检查用户是否注册过
+        $checkRet = $userService->hasRegist($userName, $mobile, $failCode);
+        if ($checkRet) {
+            $this->response = [
+                'code'   => $failCode,
+                'reason' => BsEnum::$codeMap[$failCode],
+            ];
+            return;
+        }
         //生成uid
         $uid = Util::generateUid($userName, $mobile);
         $this->params['uid'] = $uid;
         Flogger::$uid = $this->params['uid'];
-        //查询用户是否注册
-        $resRet = $userService->getUserInfoByUid($uid);
-        Flogger::info("查询结果: " . json_encode($resRet, JSON_UNESCAPED_UNICODE));
-        if (!empty($resRet)) {
-            $this->response = [
-                'code'   => BsEnum::HAS_REGISTER,
-                'reason' => BsEnum::$codeMap[BsEnum::HAS_REGISTER],
-            ];
-            return;
-        }
+
         //处理密码数据
         $salt = Util::getSalt();
         $this->params['salt'] = $salt;

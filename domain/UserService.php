@@ -117,6 +117,32 @@ class UserService
     }
 
     /**
+     * @param $userName
+     * @param $mobile
+     * @param $failCode
+     * @return bool
+     * @desc 校验用户是否已经注册
+     */
+    public function hasRegist($userName, $mobile, &$failCode)
+    {
+        $table = "user_base";
+        $data = ['email'];
+        $userModel = new UserModel();
+        $infoByUserName = $userModel->getUserInfo($data, $table, 'user_name', $userName);
+        $infoByMobile = $userModel->getUserInfo($data, $table, 'mobile', $mobile);
+        if(!empty($infoByMobile) && !empty($infoByUserName)) {
+            $failCode = BsEnum::HAS_REGISTER;
+            return true;
+        } elseif (!empty($infoByUserName)) {
+            $failCode = BsEnum::USERNAME_HAS_USED;
+            return true;
+        } elseif (!empty($infoByMobile)) {
+            $failCode = BsEnum::MOBILE_HAS_USED;
+            return true;
+        }
+        return false;
+    }
+    /**
      * @desc 格式化用户信息
      */
     private function formUserData($params)
