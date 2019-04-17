@@ -16,7 +16,7 @@ class GraduationProjectBaseController extends \yii\web\Controller
     public function beforeAction($action)
     {
         $this->input = json_decode(file_get_contents("php://input"), true);
-        Flogger::info('收到参数' . json_encode($this->input));
+        Flogger::info('收到参数' . json_encode($this->input, JSON_UNESCAPED_UNICODE));
         $this->params = $this->input;
         return true;
     }
@@ -30,7 +30,7 @@ class GraduationProjectBaseController extends \yii\web\Controller
             'uid'    => $this->uid,
             'bizData'   => $this->response,
         ];
-        Flogger::info('响应参数' . json_encode($responseData));
+        Flogger::info('响应参数' . json_encode($responseData, JSON_UNESCAPED_UNICODE));
         return $responseData;
     }
 }

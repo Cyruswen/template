@@ -144,7 +144,7 @@ class UserService
             $ret = $userModel->getUserInfo($data, $table, 'mobile', $mobile);
         } else {
             $userName = $params['userName'];
-            $ret = $userModel->getUserInfo($data, $table, 'userName', $userName);
+            $ret = $userModel->getUserInfo($data, $table, 'user_name', $userName);
         }
         if (empty($ret)) {
             $failCode = BsEnum::NO_SUCH_USER;
