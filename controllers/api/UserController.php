@@ -7,6 +7,7 @@
  */
 
 namespace app\controllers\api;
+use app\models\User;
 use app\models\UserModel;
 use Yii;
 use yii\db\Exception;
@@ -106,6 +107,53 @@ class UserController extends GraduationProjectBaseController
         } catch (Exception $e)
         {
             Flogger::info('用户信息保存失败!' . 'code: ' . $e->getCode() . 'msg: ' . $e->getMessage());
+            $this->response = [
+                'code'   => BsEnum::SQL_INSERT_FAIL,
+                'reason' => BsEnum::$codeMap[BsEnum::SQL_INSERT_FAIL],
+            ];
+            return;
+        }
+    }
+
+    /**
+     * @author wenkaikai
+     * @desc 修改密码
+     */
+    public function actionChangePasswd()
+    {
+        $userService = new UserService();
+        $checkFiled = ["uid", "password"];
+        //校验参数是否为空
+        $result = $userService->checkParams($checkFiled, $this->params);
+        if (!$result) {
+            $this->response = [
+                'code'   => BsEnum::PARAMS_ERROR_CODE,
+                'reason' => BsEnum::$codeMap[BsEnum::PARAMS_ERROR_CODE],
+            ];
+            return;
+        }
+        $uid = $this->params["uid"];
+        $password = $this->params["password"];
+        $retCheckPassword = Util::isVaildPassword($password);
+        if ($retCheckPassword === BsEnum::UN_VALID_PASSLEN) {
+            $this->response = [
+                'code'   => BsEnum::UN_VALID_PASSLEN,
+                'reason' => BsEnum::$codeMap[BsEnum::UN_VALID_PASSLEN],
+            ];
+            return;
+        } elseif ($retCheckPassword === BsEnum::UN_VALID_PASSWORD) {
+            $this->response = [
+                'code'   => BsEnum::UN_VALID_PASSWORD,
+                'reason' => BsEnum::$codeMap[BsEnum::UN_VALID_PASSWORD],
+            ];
+            return;
+        }
+        $updateData = ["password" => $password];
+        try{
+            $userService->changeUserInfo($updateData, $uid);
+        } catch (Exception $e)
+        {
+            Flogger::info('更新用户密码失败!' . 'code: ' . $e->getCode() . 'msg: ' . $e->getMessage());
             $this->response = [
                 'code'   => BsEnum::SQL_INSERT_FAIL,
                 'reason' => BsEnum::$codeMap[BsEnum::SQL_INSERT_FAIL],

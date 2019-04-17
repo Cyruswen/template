@@ -51,4 +51,14 @@ class UserModel extends ActiveRecord
         $userInfo = (new Query())->select($data)->from($tableName)->where($item . "='" . $value . "'")->all();
         return $userInfo[0];
     }
+
+    /**
+     * @param $tableName
+     * @param $data
+     * @throws Exception
+     */
+    public function updateInfoByUid($tableName, $data, $uid)
+    {
+        Yii::$app->db->createCommand()->update($tableName, $data, "uid={$uid}")->execute();
+    }
 }

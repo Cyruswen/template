@@ -22,7 +22,7 @@ class UserService
     public function checkParams($checkFiled, $params)
     {
         foreach ($checkFiled as $value) {
-            if (!isset($params[$value]) || empty($params[$value])) {
+            if (empty($params[$value])) {
                 Flogger::warning("缺少参数: " . $value);
                 return false;
             }
@@ -158,6 +158,17 @@ class UserService
             return false;
         }
         return $ret['uid'];
+    }
+
+    /**
+     * @param $data
+     * @throws \yii\db\Exception
+     */
+    public function changeUserInfo($data, $uid)
+    {
+        $table = 'user_base';
+        $userModel = new UserModel();
+        $userModel->updateInfoByUid($table, $data, $uid);
     }
 
     /**
