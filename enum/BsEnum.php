@@ -38,6 +38,6 @@ class BsEnum
         self::MOBILE_HAS_USED   => '该手机号已被占用',
         self::NO_SUCH_USER      => '用户不存在, 请注册后登录',
         self::UN_CORRECT_PASS   => '密码错误',
-        self::SAME_PASSWORD     => '密码相同',
+        self::SAME_PASSWORD     => '新密码必须与旧密码不同',
     ];
 }

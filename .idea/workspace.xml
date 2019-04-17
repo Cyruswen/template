@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec01d749-ebfe-4d14-9939-7241c1ee6e10" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/controllers/api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/api/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enum/BsEnum.php" beforeDir="false" afterPath="$PROJECT_DIR$/enum/BsEnum.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +40,7 @@
         <entry file="file://$PROJECT_DIR$/domain/UserService.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="178">
-              <caret line="173" column="41" selection-start-line="173" selection-start-column="20" selection-end-line="173" selection-end-column="41" />
+              <caret line="173" column="20" selection-start-line="173" selection-start-column="20" selection-end-line="173" selection-end-column="20" />
               <folding>
                 <element signature="e#108#133#0#PHP" expanded="true" />
               </folding>
@@ -72,8 +72,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/api/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="158" column="9" selection-start-line="158" selection-start-column="9" selection-end-line="158" selection-end-column="9" />
+            <state relative-caret-position="536">
+              <caret line="150" column="57" selection-start-line="150" selection-start-column="57" selection-end-line="150" selection-end-column="57" />
               <folding>
                 <element signature="e#119#139#0#PHP" expanded="true" />
               </folding>
@@ -111,8 +111,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/enum/BsEnum.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="40" column="42" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
+            <state relative-caret-position="451">
+              <caret line="40" column="47" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -154,8 +154,8 @@
         <option value="$PROJECT_DIR$/components/Util.php" />
         <option value="$PROJECT_DIR$/components/GraduationProjectBaseController.php" />
         <option value="$PROJECT_DIR$/models/UserModel.php" />
-        <option value="$PROJECT_DIR$/enum/BsEnum.php" />
         <option value="$PROJECT_DIR$/domain/UserService.php" />
+        <option value="$PROJECT_DIR$/enum/BsEnum.php" />
         <option value="$PROJECT_DIR$/controllers/api/UserController.php" />
       </list>
     </option>
@@ -346,12 +346,12 @@
       <workItem from="1555118306740" duration="7742000" />
       <workItem from="1555153391500" duration="101000" />
       <workItem from="1555322916216" duration="18400000" />
-      <workItem from="1555471844517" duration="17152000" />
+      <workItem from="1555471844517" duration="17533000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114335000" />
+    <option name="totallyTimeSpent" value="114716000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -751,13 +751,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/enum/BsEnum.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="40" column="42" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/GraduationProjectBaseController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
@@ -768,17 +761,24 @@
     <entry file="file://$PROJECT_DIR$/domain/UserService.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
-          <caret line="173" column="41" selection-start-line="173" selection-start-column="20" selection-end-line="173" selection-end-column="41" />
+          <caret line="173" column="20" selection-start-line="173" selection-start-column="20" selection-end-line="173" selection-end-column="20" />
           <folding>
             <element signature="e#108#133#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/enum/BsEnum.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="40" column="47" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/api/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="158" column="9" selection-start-line="158" selection-start-column="9" selection-end-line="158" selection-end-column="9" />
+        <state relative-caret-position="536">
+          <caret line="150" column="57" selection-start-line="150" selection-start-column="57" selection-end-line="150" selection-end-column="57" />
           <folding>
             <element signature="e#119#139#0#PHP" expanded="true" />
           </folding>
