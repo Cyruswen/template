@@ -36,9 +36,20 @@ class UserController extends GraduationProjectBaseController
                 'code'   => BsEnum::PARAMS_ERROR_CODE,
                 'reason' => BsEnum::$codeMap[BsEnum::PARAMS_ERROR_CODE],
             ];
+            return;
         }
-        $userService->judjeLoginType($this->params);
-        
+        //判断用户登录类型
+        $userService->loginType($this->params);
+        $failCode = 0;
+        $canLogin = $userService->canLogin($this->params, $failCode);
+        if ($canLogin === false) {
+            $this->response = [
+                'code'   => $failCode,
+                'reason' => BsEnum::$codeMap[$failCode],
+            ];
+            return;
+        }
+        $this->uid = $canLogin;
     }
 
     /**

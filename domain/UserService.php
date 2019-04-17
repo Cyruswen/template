@@ -76,15 +76,12 @@ class UserService
      * @param $account
      * @desc 判断登录时用户输入的类型(电话号, 邮箱, 用户名)
      */
-    public function judjeLoginType(&$params)
+    public function loginType(&$params)
     {
         $account = $params['account'];
         if (is_numeric($account)) {
             $params['mobile'] = $account;
             $params['userType'] = BsEnum::MOBILE;
-        } elseif (strstr($account, '@')) {
-            $params['email'] = $account;
-            $params['userType'] = BsEnum::EMAIL;
         } else {
             $params['name'] = $account;
             $params['userType'] = BsEnum::USERNAME;
@@ -102,18 +99,6 @@ class UserService
         $saveData = $this->formUserData($params);
         $saveRes = (new UserModel())->saveBaseInfo($table, $saveData);
         return $saveRes;
-    }
-
-    /**
-     * @param $uid
-     * @return array
-     */
-    public function getUserInfoByUid($uid)
-    {
-        $table = "user_base";
-        $data = ['user_name', 'password', 'mobile', 'email', 'salt'];
-        $userInfo = (new UserModel())->getInfoByUid($data, $table, $uid);
-        return $userInfo;
     }
 
     /**
@@ -142,6 +127,39 @@ class UserService
         }
         return false;
     }
+
+    /**
+     * @param $params
+     * @param $failCode
+     * @return bool
+     * @desc 判断用户是否可以登录
+     */
+    public function canLogin($params, &$failCode) {
+        $table = "user_base";
+        $data = ['uid', 'password', 'salt'];
+        $userModel = new UserModel();
+        $ret = [];
+        if ($params['userType'] === BsEnum::MOBILE) {
+            $mobile = $params['mobile'];
+            $ret = $userModel->getUserInfo($data, $table, 'mobile', $mobile);
+        } else {
+            $userName = $params['userName'];
+            $ret = $userModel->getUserInfo($data, $table, 'userName', $userName);
+        }
+        if (empty($ret)) {
+            $failCode = BsEnum::NO_SUCH_USER;
+            return false;
+        }
+        $password = $params['password'];
+        $salt = $ret['salt'];
+        $passwordEncrypt = Util::passwdEncode($password, $salt);
+        if ($passwordEncrypt !== $ret['password']) {
+            $failCode = BsEnum::UN_CORRECT_PASS;
+            return false;
+        }
+        return $ret['uid'];
+    }
+
     /**
      * @desc 格式化用户信息
      */

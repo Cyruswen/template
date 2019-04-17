@@ -18,10 +18,11 @@ class BsEnum
     const HAS_REGISTER      = 10007; //用户已经注册
     const USERNAME_HAS_USED = 10008; //用户名已被占用
     const MOBILE_HAS_USED   = 10009; //手机号已被占用
+    const NO_SUCH_USER      = 10010; //用户不存在, 请注册后登录
+    const UN_CORRECT_PASS   = 10011; //密码错误
 
     const MOBILE   = 'mobile';
     const USERNAME = 'userName';
-    const EMAIL    = 'email';
 
     public static $codeMap = [
         self::PARAMS_ERROR_CODE => '缺少必传字段',
@@ -34,5 +35,7 @@ class BsEnum
         self::HAS_REGISTER      => '用户已注册, 请前往登录',
         self::USERNAME_HAS_USED => '该用户名已被占用',
         self::MOBILE_HAS_USED   => '该手机号已被占用',
+        self::NO_SUCH_USER      => '用户不存在, 请注册后登录',
+        self::UN_CORRECT_PASS   => '密码错误',
     ];
 }

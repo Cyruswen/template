@@ -11,7 +11,7 @@ class GraduationProjectBaseController extends \yii\web\Controller
     protected $params = [];
     protected $response = '';
     protected $input = [];
-    protected $uid;
+    protected $uid = 0;
 
     public function beforeAction($action)
     {
