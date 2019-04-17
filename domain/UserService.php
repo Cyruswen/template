@@ -83,7 +83,7 @@ class UserService
             $params['mobile'] = $account;
             $params['userType'] = BsEnum::MOBILE;
         } else {
-            $params['name'] = $account;
+            $params['userName'] = $account;
             $params['userType'] = BsEnum::USERNAME;
         }
         unset($params['account']);
