@@ -171,6 +171,14 @@ class UserService
         $userModel->updateInfoByUid($table, $data, $uid);
     }
 
+    public function getOldPasswordByUid($uid)
+    {
+        $table = "user_base";
+        $data = ['password'];
+        $userModel = new UserModel();
+        $ret = $userModel->getUserInfo($data, $table, 'uid', $uid);
+        return $ret;
+    }
     /**
      * @desc 格式化用户信息
      */

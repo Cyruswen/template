@@ -20,6 +20,7 @@ class BsEnum
     const MOBILE_HAS_USED   = 10009; //手机号已被占用
     const NO_SUCH_USER      = 10010; //用户不存在, 请注册后登录
     const UN_CORRECT_PASS   = 10011; //密码错误
+    const SAME_PASSWORD     = 10012; //密码相同
 
     const MOBILE   = 'mobile';
     const USERNAME = 'userName';
@@ -37,5 +38,6 @@ class BsEnum
         self::MOBILE_HAS_USED   => '该手机号已被占用',
         self::NO_SUCH_USER      => '用户不存在, 请注册后登录',
         self::UN_CORRECT_PASS   => '密码错误',
+        self::SAME_PASSWORD     => '密码相同',
     ];
 }

@@ -148,6 +148,14 @@ class UserController extends GraduationProjectBaseController
             ];
             return;
         }
+        $ret = $userService->getOldPasswordByUid($uid);
+        if ($password === $ret['password']) {
+            $this->response = [
+                'code'   => BsEnum::SAME_PASSWORD,
+                'reason' => BsEnum::$codeMap[BsEnum::SAME_PASSWORD],
+            ];
+            return;
+        }
         $updateData = ["password" => $password];
         try{
             $userService->changeUserInfo($updateData, $uid);
