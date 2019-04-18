@@ -189,7 +189,7 @@ class UserController extends GraduationProjectBaseController
         }
         //校验新的电话号是否合法
         $uid = $this->params['uid'];
-        $mobile = $this->params['mobile'];
+        $mobile = $this->params['userPhone'];
         $failCode = 0;
         $result = $userService->canChangeMobile($uid, $mobile, $failCode);
         if (!$result) {
