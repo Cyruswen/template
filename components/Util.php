@@ -78,7 +78,7 @@ class Util
             return false;
         }
         $ret = strstr($email, '@');
-        if ($ret === false) {
+        if ($ret === false || strlen($email) < BsEnum::EMAIL_LESS_LEN) {
             return false;
         }
         return true;

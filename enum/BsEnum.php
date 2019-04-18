@@ -8,6 +8,8 @@
 
 class BsEnum
 {
+    const EMAIL_LESS_LEN = 7;
+
     const PARAMS_ERROR_CODE = 10000; //字段缺失
     const UN_VALID_MOBILE   = 10001; //手机号不合法
     const UN_VALID_USERNAME = 10002; //用户手机号不合法
