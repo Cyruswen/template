@@ -6,6 +6,7 @@
  * Time: 11:40
  */
 namespace app\domain;
+use app\models\User;
 use app\models\UserModel;
 use Flogger;
 use Util;
@@ -179,6 +180,38 @@ class UserService
         $ret = $userModel->getUserInfo($data, $table, 'uid', $uid);
         return $ret;
     }
+
+    /**
+     * @param $uid
+     * @param $mobile
+     * @param $failCode
+     * @return bool
+     * @desc 判断用户是否可以更改手机号
+     */
+    public function canChangeMobile($uid, $mobile, &$failCode)
+    {
+        $userModel = new UserModel();
+        $table = "user_base";
+        $data = ['email'];
+        $userInfo = $userModel->getUserInfo($data, $table, 'mobile', $mobile);
+        if (!empty($userInfo)) {
+            $failCode = BsEnum::MOBILE_HAS_USED;
+            return false;
+        }
+        $data = ['mobile'];
+        $userInfo = $userModel->getUserInfo($data, $table, 'uid', $uid);
+        if ($userInfo['mobile'] === $mobile) {
+            $failCode = BsEnum::SAME_MOBILE;
+            return false;
+        }
+        $retCheckMobile = Util::isValidMobile($mobile);
+        if (!$retCheckMobile) {
+            $failCode = BsEnum::UN_VALID_MOBILE;
+            return false;
+        }
+        return true;
+    }
+
     /**
      * @desc 格式化用户信息
      */

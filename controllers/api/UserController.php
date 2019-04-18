@@ -188,25 +188,14 @@ class UserController extends GraduationProjectBaseController
             return;
         }
         //校验新的电话号是否合法
-        $mobile = $this->params['userPhone'];
         $uid = $this->params['uid'];
-        $this->uid = $uid;
-        //校验用户手机号
-        $table = "user_base";
-        $data = ['mobile'];
-        $userInfo = (new UserModel())->getUserInfo($data, $table, 'uid', $uid);
-        if ($userInfo['mobile'] === $mobile) {
+        $mobile = $this->params['mobile'];
+        $failCode = 0;
+        $result = $userService->canChangeMobile($uid, $mobile, $failCode);
+        if (!$result) {
             $this->response = [
-                'code'   => BsEnum::SAME_MOBILE,
-                'reason' => BsEnum::$codeMap[BsEnum::SAME_MOBILE],
-            ];
-            return;
-        }
-        $retCheckMobile = Util::isValidMobile($mobile);
-        if (!$retCheckMobile) {
-            $this->response = [
-                'code'   => BsEnum::UN_VALID_MOBILE,
-                'reason' => BsEnum::$codeMap[BsEnum::UN_VALID_MOBILE],
+                'code'   => BsEnum::SQL_INSERT_FAIL,
+                'reason' => BsEnum::$codeMap[BsEnum::SQL_INSERT_FAIL],
             ];
             return;
         }
@@ -245,7 +234,7 @@ class UserController extends GraduationProjectBaseController
         $uid = $this->params['uid'];
         $email = $this->params['userEmail'];
         $this->uid = $uid;
-        //校验用户手机号
+        //校验用户邮箱
         $retCheckMobile = Util::isVaildEmail($email);
         if (!$retCheckMobile) {
             $this->response = [
