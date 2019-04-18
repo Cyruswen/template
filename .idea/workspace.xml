@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ec01d749-ebfe-4d14-9939-7241c1ee6e10" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/controllers/api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/api/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/domain/UserService.php" afterDir="false" />
-    </list>
+    <list default="true" id="ec01d749-ebfe-4d14-9939-7241c1ee6e10" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -335,12 +332,12 @@
       <workItem from="1555118306740" duration="7742000" />
       <workItem from="1555153391500" duration="101000" />
       <workItem from="1555322916216" duration="18400000" />
-      <workItem from="1555471844517" duration="23543000" />
+      <workItem from="1555471844517" duration="23855000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120726000" />
+    <option name="totallyTimeSpent" value="121038000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
