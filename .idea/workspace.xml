@@ -39,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/domain/UserService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="536">
-              <caret line="213" selection-start-line="213" selection-end-line="213" />
+            <state relative-caret-position="200">
+              <caret line="197" column="47" selection-start-line="197" selection-start-column="32" selection-end-line="197" selection-end-column="47" />
               <folding>
                 <element signature="e#108#128#0#PHP" expanded="true" />
               </folding>
@@ -60,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/api/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="191" column="42" selection-start-line="191" selection-start-column="42" selection-end-line="191" selection-end-column="42" />
+            <state relative-caret-position="273">
+              <caret line="197" column="54" selection-start-line="197" selection-start-column="54" selection-end-line="197" selection-end-column="54" />
               <folding>
                 <element signature="e#119#139#0#PHP" expanded="true" />
               </folding>
@@ -334,12 +334,12 @@
       <workItem from="1555118306740" duration="7742000" />
       <workItem from="1555153391500" duration="101000" />
       <workItem from="1555322916216" duration="18400000" />
-      <workItem from="1555471844517" duration="22091000" />
+      <workItem from="1555471844517" duration="22281000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119274000" />
+    <option name="totallyTimeSpent" value="119464000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -729,16 +729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/UserModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
-          <folding>
-            <element signature="e#110#118#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/Util.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
@@ -753,10 +743,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/models/UserModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
+          <folding>
+            <element signature="e#110#118#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/domain/UserService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="213" selection-start-line="213" selection-end-line="213" />
+        <state relative-caret-position="200">
+          <caret line="197" column="47" selection-start-line="197" selection-start-column="32" selection-end-line="197" selection-end-column="47" />
           <folding>
             <element signature="e#108#128#0#PHP" expanded="true" />
           </folding>
@@ -765,8 +765,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/api/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="191" column="42" selection-start-line="191" selection-start-column="42" selection-end-line="191" selection-end-column="42" />
+        <state relative-caret-position="273">
+          <caret line="197" column="54" selection-start-line="197" selection-start-column="54" selection-end-line="197" selection-end-column="54" />
           <folding>
             <element signature="e#119#139#0#PHP" expanded="true" />
           </folding>

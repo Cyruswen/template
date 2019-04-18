@@ -194,8 +194,8 @@ class UserController extends GraduationProjectBaseController
         $result = $userService->canChangeMobile($uid, $mobile, $failCode);
         if (!$result) {
             $this->response = [
-                'code'   => BsEnum::SQL_INSERT_FAIL,
-                'reason' => BsEnum::$codeMap[BsEnum::SQL_INSERT_FAIL],
+                'code'   => $failCode,
+                'reason' => BsEnum::$codeMap[$failCode],
             ];
             return;
         }
