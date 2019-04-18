@@ -214,4 +214,48 @@ class UserController extends GraduationProjectBaseController
             return;
         }
     }
+
+    /**
+     * @desc 更新用户邮箱
+     */
+    public function actionChangeEmail()
+    {
+        $userService = new UserService();
+        $checkFiled = ["uid", "userEmail"];
+        //校验参数是否为空
+        $result = $userService->checkParams($checkFiled, $this->params);
+        if (!$result) {
+            $this->response = [
+                'code'   => BsEnum::PARAMS_ERROR_CODE,
+                'reason' => BsEnum::$codeMap[BsEnum::PARAMS_ERROR_CODE],
+            ];
+            return;
+        }
+        //校验邮箱是否合法
+        $uid = $this->params['uid'];
+        $email = $this->params['userEmail'];
+        $this->uid = $uid;
+        //校验用户手机号
+        $retCheckMobile = Util::isVaildEmail($email);
+        if (!$retCheckMobile) {
+            $this->response = [
+                'code'   => BsEnum::UN_VALID_EMAIL,
+                'reason' => BsEnum::$codeMap[BsEnum::UN_VALID_EMAIL],
+            ];
+            return;
+        }
+        //更新用户邮箱
+        $updateData = ["email" => $email];
+        try{
+            $userService->changeUserInfo($updateData, $uid);
+        } catch (Exception $e)
+        {
+            Flogger::info('更新用户邮箱失败!' . 'code: ' . $e->getCode() . 'msg: ' . $e->getMessage());
+            $this->response = [
+                'code'   => BsEnum::SQL_INSERT_FAIL,
+                'reason' => BsEnum::$codeMap[BsEnum::SQL_INSERT_FAIL],
+            ];
+            return;
+        }
+    }
 }
