@@ -170,4 +170,48 @@ class UserController extends GraduationProjectBaseController
             return;
         }
     }
+
+    /**
+     * @desc 更新用户手机号
+     */
+    public function actionChangeMobile()
+    {
+        $userService = new UserService();
+        $checkFiled = ["uid", "userPhone"];
+        //校验参数是否为空
+        $result = $userService->checkParams($checkFiled, $this->params);
+        if (!$result) {
+            $this->response = [
+                'code'   => BsEnum::PARAMS_ERROR_CODE,
+                'reason' => BsEnum::$codeMap[BsEnum::PARAMS_ERROR_CODE],
+            ];
+            return;
+        }
+        //校验新的电话号是否合法
+        $mobile = $this->params['userPhone'];
+        $uid = $this->params['uid'];
+        $this->uid = $uid;
+        //校验用户手机号
+        $retCheckMobile = Util::isValidMobile($mobile);
+        if (!$retCheckMobile) {
+            $this->response = [
+                'code'   => BsEnum::UN_VALID_MOBILE,
+                'reason' => BsEnum::$codeMap[BsEnum::UN_VALID_MOBILE],
+            ];
+            return;
+        }
+        //更新用户手机号
+        $updateData = ["mobile" => $mobile];
+        try{
+            $userService->changeUserInfo($updateData, $uid);
+        } catch (Exception $e)
+        {
+            Flogger::info('更新用户手机号失败!' . 'code: ' . $e->getCode() . 'msg: ' . $e->getMessage());
+            $this->response = [
+                'code'   => BsEnum::SQL_INSERT_FAIL,
+                'reason' => BsEnum::$codeMap[BsEnum::SQL_INSERT_FAIL],
+            ];
+            return;
+        }
+    }
 }
