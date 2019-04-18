@@ -164,6 +164,7 @@ class UserService
     /**
      * @param $data
      * @throws \yii\db\Exception
+     * @desc 更改用户信息
      */
     public function changeUserInfo($data, $uid)
     {
@@ -208,6 +209,31 @@ class UserService
         if (!$retCheckMobile) {
             $failCode = BsEnum::UN_VALID_MOBILE;
             return false;
+        }
+        return true;
+    }
+
+    /**
+     * @param $uid
+     * @param $email
+     * @param $failCode
+     * @return bool
+     * @desc 判断用户是否能更改密码
+     */
+    public function canChangeEmail($uid, $email, &$failCode)
+    {
+        $userModel = new UserModel();
+        $table = "user_base";
+        $data = ['email'];
+        $userInfo = $userModel->getUserInfo($data, $table, 'uid', $uid);
+        if($userInfo['email'] === $email) {
+            $failCode = BsEnum::SAME_EMAIL;
+            return false;
+        }
+        $retCheckMobile = Util::isVaildEmail($email);
+        if (!$retCheckMobile) {
+           $failCode = BsEnum::UN_VALID_EMAIL;
+           return false;
         }
         return true;
     }

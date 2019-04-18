@@ -236,13 +236,13 @@ class UserController extends GraduationProjectBaseController
         $email = $this->params['userEmail'];
         $this->uid = $uid;
         //校验用户邮箱
-        $retCheckMobile = Util::isVaildEmail($email);
-        if (!$retCheckMobile) {
+        $failCode = 0;
+        $result = $userService->canChangeEmail($uid, $email, $failCode);
+        if (!$result) {
             $this->response = [
-                'code'   => BsEnum::UN_VALID_EMAIL,
-                'reason' => BsEnum::$codeMap[BsEnum::UN_VALID_EMAIL],
+                'code'   => $failCode,
+                'reason' => BsEnum::$codeMap[$failCode],
             ];
-            return;
         }
         //更新用户邮箱
         $updateData = ["email" => $email];
