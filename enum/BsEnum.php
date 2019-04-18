@@ -21,6 +21,8 @@ class BsEnum
     const NO_SUCH_USER      = 10010; //用户不存在, 请注册后登录
     const UN_CORRECT_PASS   = 10011; //密码错误
     const SAME_PASSWORD     = 10012; //密码相同
+    const SAME_MOBILE       = 10013; //新旧手机号相同
+    const SAME_EMAIL        = 10014; //新旧邮箱相同
 
     const MOBILE   = 'mobile';
     const USERNAME = 'userName';
@@ -39,5 +41,7 @@ class BsEnum
         self::NO_SUCH_USER      => '用户不存在, 请注册后登录',
         self::UN_CORRECT_PASS   => '密码错误',
         self::SAME_PASSWORD     => '新密码必须与旧密码不同',
+        self::SAME_EMAIL        => '新旧邮箱不能相同',
+        self::SAME_MOBILE       => '新旧手机号不能相同'
     ];
 }

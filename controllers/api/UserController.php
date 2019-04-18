@@ -192,6 +192,16 @@ class UserController extends GraduationProjectBaseController
         $uid = $this->params['uid'];
         $this->uid = $uid;
         //校验用户手机号
+        $table = "user_base";
+        $data = ['mobile'];
+        $userInfo = (new UserModel())->getUserInfo($data, $table, 'uid', $uid);
+        if ($userInfo['mobile'] === $mobile) {
+            $this->response = [
+                'code'   => BsEnum::SAME_MOBILE,
+                'reason' => BsEnum::$codeMap[BsEnum::SAME_MOBILE],
+            ];
+            return;
+        }
         $retCheckMobile = Util::isValidMobile($mobile);
         if (!$retCheckMobile) {
             $this->response = [
