@@ -218,7 +218,7 @@ class UserService
      * @param $email
      * @param $failCode
      * @return bool
-     * @desc 判断用户是否能更改密码
+     * @desc 判断用户是否能更改邮箱
      */
     public function canChangeEmail($uid, $email, &$failCode)
     {
