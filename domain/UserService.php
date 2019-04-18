@@ -192,16 +192,16 @@ class UserService
     {
         $userModel = new UserModel();
         $table = "user_base";
-        $data = ['email'];
-        $userInfo = $userModel->getUserInfo($data, $table, 'mobile', $mobile);
-        if (!empty($userInfo)) {
-            $failCode = BsEnum::MOBILE_HAS_USED;
-            return false;
-        }
         $data = ['mobile'];
         $userInfo = $userModel->getUserInfo($data, $table, 'uid', $uid);
         if ($userInfo['mobile'] === $mobile) {
             $failCode = BsEnum::SAME_MOBILE;
+            return false;
+        }
+        $data = ['email'];
+        $userInfo = $userModel->getUserInfo($data, $table, 'mobile', $mobile);
+        if (!empty($userInfo)) {
+            $failCode = BsEnum::MOBILE_HAS_USED;
             return false;
         }
         $retCheckMobile = Util::isValidMobile($mobile);

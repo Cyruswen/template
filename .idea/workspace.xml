@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec01d749-ebfe-4d14-9939-7241c1ee6e10" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/controllers/api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/api/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/domain/UserService.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/domain/UserService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="197" column="47" selection-start-line="197" selection-start-column="32" selection-end-line="197" selection-end-column="47" />
+            <state relative-caret-position="368">
+              <caret line="205" column="9" selection-start-line="205" selection-start-column="9" selection-end-line="205" selection-end-column="9" />
               <folding>
                 <element signature="e#108#128#0#PHP" expanded="true" />
               </folding>
@@ -57,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/api/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="197" column="54" selection-start-line="197" selection-start-column="54" selection-end-line="197" selection-end-column="54" />
+            <state relative-caret-position="357">
+              <caret line="234" column="44" lean-forward="true" selection-start-line="234" selection-start-column="44" selection-end-line="234" selection-end-column="44" />
               <folding>
                 <element signature="e#119#139#0#PHP" expanded="true" />
               </folding>
@@ -143,8 +143,8 @@
         <option value="$PROJECT_DIR$/components/GraduationProjectBaseController.php" />
         <option value="$PROJECT_DIR$/models/UserModel.php" />
         <option value="$PROJECT_DIR$/enum/BsEnum.php" />
-        <option value="$PROJECT_DIR$/domain/UserService.php" />
         <option value="$PROJECT_DIR$/controllers/api/UserController.php" />
+        <option value="$PROJECT_DIR$/domain/UserService.php" />
       </list>
     </option>
   </component>
@@ -334,12 +334,12 @@
       <workItem from="1555118306740" duration="7742000" />
       <workItem from="1555153391500" duration="101000" />
       <workItem from="1555322916216" duration="18400000" />
-      <workItem from="1555471844517" duration="22281000" />
+      <workItem from="1555471844517" duration="22483000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119464000" />
+    <option name="totallyTimeSpent" value="119666000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -753,22 +753,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/domain/UserService.php">
+    <entry file="file://$PROJECT_DIR$/controllers/api/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="197" column="47" selection-start-line="197" selection-start-column="32" selection-end-line="197" selection-end-column="47" />
+        <state relative-caret-position="357">
+          <caret line="234" column="44" lean-forward="true" selection-start-line="234" selection-start-column="44" selection-end-line="234" selection-end-column="44" />
           <folding>
-            <element signature="e#108#128#0#PHP" expanded="true" />
+            <element signature="e#119#139#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/api/UserController.php">
+    <entry file="file://$PROJECT_DIR$/domain/UserService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="197" column="54" selection-start-line="197" selection-start-column="54" selection-end-line="197" selection-end-column="54" />
+        <state relative-caret-position="368">
+          <caret line="205" column="9" selection-start-line="205" selection-start-column="9" selection-end-line="205" selection-end-column="9" />
           <folding>
-            <element signature="e#119#139#0#PHP" expanded="true" />
+            <element signature="e#108#128#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
