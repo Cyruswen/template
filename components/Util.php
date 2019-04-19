@@ -98,13 +98,17 @@ class Util
         return $unique_no;
     }
 
-
+    /**
+     * @return bool|string
+     * @desc 生成八位did
+     */
     public static function generateDid()
     {
         $strInfo = uniqid() . microtime();
         $unique_no = substr(base_convert(md5($strInfo), 16, 10), 0, 8);
         return $unique_no;
     }
+
     /**
      * @author wenkaikai
      * @return string
@@ -124,5 +128,25 @@ class Util
     public static function passwdEncode($password, $salt)
     {
         return sha1($password . $salt);
+    }
+
+    public static function generateVerifyCode() {
+        $code = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $rand = $code[rand(0,25)]
+            .strtoupper(dechex(date('m')))
+            .date('d').substr(time(),-5)
+            .substr(microtime(),2,5)
+            .sprintf('%02d',rand(0,99));
+        for(
+            $a = md5( $rand, true ),
+            $s = '0123456789ABCDEFGHIJKLMNOPQRSTUV',
+            $d = '',
+            $f = 0;
+            $f < 8;
+            $g = ord( $a[ $f ] ),
+            $d .= $s[ ( $g ^ ord( $a[ $f + 8 ] ) ) - $g & 0x1F ],
+            $f++
+        );
+        return $d;
     }
 }

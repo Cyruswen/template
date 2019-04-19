@@ -17,12 +17,17 @@ use Flogger;
 class HelloController extends Controller
 {
 
+    /**
+     * @param int $num
+     * @return int
+     * @desc 生成设备号以及序列号的脚本
+     */
     public function actionGenerateDevice($num = 10)
     {
         $arrData = [];
         for($i = 0; $i < $num; $i++) {
             $arrData[$i][] = Util::generateDid();
-            $arrData[$i][] = Util::getSalt();
+            $arrData[$i][] = Util::generateVerifyCode();
             $arrData[$i][] = time();
             usleep(100);
         }
