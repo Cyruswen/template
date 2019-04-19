@@ -37,7 +37,7 @@ class HelloController extends Controller
             (new UserModel())->saveBatchData($tableName, $items, $arrData);
         } catch (Exception $e) {
             Flogger::info("添加新设备id/序列号失败! code: " . $e->getCode() . "message: " . $e->getMessage());
-            return -1;
+            return ExitCode::SQLERR;
         }
         return ExitCode::OK;
     }
