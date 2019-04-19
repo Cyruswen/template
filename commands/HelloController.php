@@ -27,7 +27,7 @@ class HelloController extends Controller
             usleep(100);
         }
         $tableName = 'device_info';
-        $items = ['did', 'verify_code', 'status'];
+        $items = ['did', 'verify_code', 'update_time'];
         try {
             (new UserModel())->saveBatchData($tableName, $items, $arrData);
         } catch (Exception $e) {
