@@ -1,5 +1,10 @@
 <?php
-
+Yii::$classMap['Flogger'] = '@app/components/Flogger.php';
+Yii::$classMap['GraduationProjectBaseController'] = '@app/components/GraduationProjectBaseController.php';
+Yii::$classMap['UserService'] = '@app/domain/UserService.php';
+Yii::$classMap['BsEnum'] = '@app/enum/BsEnum.php';
+Yii::$classMap['Util'] = '@app/components/Util.php';
+Yii::$classMap['UserModel'] = '@app/models/UserModel.php';
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
@@ -21,7 +26,7 @@ $config = [
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
+                    'levels' => ['error', 'warning', 'info'],
                 ],
             ],
         ],
