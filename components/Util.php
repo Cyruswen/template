@@ -98,6 +98,13 @@ class Util
         return $unique_no;
     }
 
+
+    public static function generateDid()
+    {
+        $strInfo = uniqid() . microtime();
+        $unique_no = substr(base_convert(md5($strInfo), 16, 10), 0, 8);
+        return $unique_no;
+    }
     /**
      * @author wenkaikai
      * @return string

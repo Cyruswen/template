@@ -7,28 +7,34 @@
 
 namespace app\commands;
 
+use app\models\UserModel;
 use yii\console\Controller;
 use yii\console\ExitCode;
+use Util;
+use yii\db\Exception;
+use Flogger;
 
-/**
- * This command echoes the first argument that you have entered.
- *
- * This command is provided as an example for you to learn how to create console commands.
- *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @since 2.0
- */
 class HelloController extends Controller
 {
-    /**
-     * This command echoes what you have entered as the message.
-     * @param string $message the message to be echoed.
-     * @return int Exit code
-     */
-    public function actionIndex($message = 'hello world')
-    {
-        echo $message . "\n";
 
+    public function actionGenerateDevice($num = 10)
+    {
+        $arrData = [];
+        for($i = 0; $i < $num; $i++) {
+            $arrData[$i][] = Util::generateDid();
+            $arrData[$i][] = Util::getSalt();
+            $arrData[$i][] = time();
+            usleep(100);
+        }
+        $tableName = 'device_info';
+        $items = ['did', 'verify_code', 'status'];
+        try {
+            (new UserModel())->saveBatchData($tableName, $items, $arrData);
+        } catch (Exception $e) {
+            Flogger::info("添加新设备id/序列号失败! code: " . $e->getCode() . "message: " . $e->getMessage());
+            return -1;
+        }
         return ExitCode::OK;
     }
+
 }

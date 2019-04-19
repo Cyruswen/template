@@ -19,25 +19,27 @@ class UserModel extends ActiveRecord
      * @param $data
      * @return bool
      * @throws Exception
-     * @desc $data总共有两个元素, 第一个元素表示要插入数据库的字段 第二个元素表示插入的数据
+     * @desc 单条插入数据
      */
     public function saveBaseInfo($tableName, $data)
     {
         if (empty($data) || empty($tableName)) {
             throw new Exception('参数为空');
         }
-        /*
-        //暂时弃用, 批量添加
-        $items = [];
-        $insertData = [];
-        foreach ($data as $key => $value) {
-            $items[] = $key;
-            $ideepnsertData[] = $value;
-        }
-        Yii::$app->db->createCommand()->batchInsert($tableName, $items, $insertData)->execute();
-        */
         Yii::$app->db->createCommand()->insert($tableName, $data)->execute();
         return true;
+    }
+
+    /**
+     * @param $tableName
+     * @param $items
+     * @param $data
+     * @throws Exception
+     * @desc 批量插入数据
+     */
+    public function saveBatchData($tableName, $items, $data)
+    {
+        Yii::$app->db->createCommand()->batchInsert($tableName, $items, $data)->execute();
     }
 
     /**

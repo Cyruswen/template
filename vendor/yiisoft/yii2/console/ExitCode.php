@@ -122,6 +122,8 @@ class ExitCode
      */
     const CONFIG = 78;
 
+    const SQLERR = 79;
+
     /**
      * @var array a map of reason descriptions for exit codes.
      */
@@ -143,6 +145,7 @@ class ExitCode
         self::PROTOCOL => 'Unexpected remote service behavior',
         self::NOPERM => 'Insufficient permissions',
         self::CONFIG => 'Configuration error',
+        self::SQLERR => 'SQL insert error',
     ];
 
 
