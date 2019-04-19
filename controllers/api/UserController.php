@@ -7,13 +7,7 @@
  */
 
 namespace app\controllers\api;
-use app\models\User;
-use app\models\UserModel;
-use Yii;
 use yii\db\Exception;
-use yii\filters\AccessControl;
-use yii\web\Controller;
-use yii\web\Response;
 use GraduationProjectBaseController;
 use Flogger;
 use app\domain\UserService;
