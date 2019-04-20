@@ -20,7 +20,7 @@ class DeviceService
         $userModel = new UserModel();
         $data = ['did'];
         $table = "uid_did_map";
-        $result = $userModel->getUserInfo($data, $table, "uid", $uid);
+        $result = $userModel->getBatchUserInfo($data, $table, "uid", $uid);
         return $result;
     }
 }

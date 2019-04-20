@@ -55,6 +55,20 @@ class UserModel extends ActiveRecord
     }
 
     /**
+     * @param $data
+     * @param $tableName
+     * @param $item
+     * @param $value
+     * @return array
+     * @desc 获得批量数据
+     */
+    public function getBatchUserInfo($data, $tableName, $item, $value)
+    {
+        $userInfo = (new Query())->select($data)->from($tableName)->where($item . "='" . $value . "'")->all();
+        return $userInfo;
+    }
+
+    /**
      * @param $tableName
      * @param $data
      * @throws Exception
