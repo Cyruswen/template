@@ -10,7 +10,7 @@ namespace app\controllers\api;
 use yii\db\Exception;
 use GraduationProjectBaseController;
 use Flogger;
-use app\domain\UserService;
+use app\domain\DeviceService;
 use BsEnum;
 use Util;
 
@@ -21,7 +21,16 @@ class DeviceController extends GraduationProjectBaseController
      */
     public function actionGetUserDevice()
     {
-
+        $uid = $this->params['uid'];
+        if (empty($uid)) {
+            $this->response = [
+                'code' => BsEnum::PARAMS_ERROR_CODE,
+                'reason' => BsEnum::$codeMap[BsEnum::PARAMS_ERROR_CODE],
+            ];
+        }
+        $deviceService = new DeviceService();
+        $result = $deviceService->getUserDevice($uid);
+        Flogger::info("device: " . json_encode($result));
     }
 
     /**

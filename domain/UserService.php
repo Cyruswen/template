@@ -6,7 +6,6 @@
  * Time: 11:40
  */
 namespace app\domain;
-use app\models\User;
 use app\models\UserModel;
 use Flogger;
 use Util;
