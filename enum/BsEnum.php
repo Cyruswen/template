@@ -25,6 +25,8 @@ class BsEnum
     const SAME_PASSWORD     = 10012; //密码相同
     const SAME_MOBILE       = 10013; //新旧手机号相同
     const SAME_EMAIL        = 10014; //新旧邮箱相同
+    const NO_SUCH_DEVICE    = 10015; //设备号不存在
+    const UN_CORRECT_VERIFY = 10016; //验证码不对
 
     const MOBILE   = 'mobile';
     const USERNAME = 'userName';
@@ -44,6 +46,8 @@ class BsEnum
         self::UN_CORRECT_PASS   => '密码错误',
         self::SAME_PASSWORD     => '新密码必须与旧密码不同',
         self::SAME_EMAIL        => '新旧邮箱不能相同',
-        self::SAME_MOBILE       => '新旧手机号不能相同'
+        self::SAME_MOBILE       => '新旧手机号不能相同',
+        self::NO_SUCH_DEVICE    => '设备号不存在, 请重新输入',
+        self::UN_CORRECT_VERIFY => '设备序列号不正确',
     ];
 }

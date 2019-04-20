@@ -7,6 +7,8 @@
  */
 
 namespace app\controllers\api;
+use app\domain\UserService;
+use app\models\User;
 use yii\db\Exception;
 use GraduationProjectBaseController;
 use Flogger;
@@ -27,16 +29,13 @@ class DeviceController extends GraduationProjectBaseController
                 'code' => BsEnum::PARAMS_ERROR_CODE,
                 'reason' => BsEnum::$codeMap[BsEnum::PARAMS_ERROR_CODE],
             ];
+            return;
         }
         $this->uid = $uid;
         $deviceService = new DeviceService();
         $arrRes = $deviceService->getUserDevice($uid);
-        $response = [];
-        foreach ($arrRes as $item) {
-            $response[] = $item['did'];
-        }
         $this->response = [
-            'result' => $response,
+            'result' => $arrRes,
         ];
     }
 
@@ -45,6 +44,29 @@ class DeviceController extends GraduationProjectBaseController
      */
     public function actionAddDevice()
     {
+        $filed = ['uid', 'did', 'verifyCode'];
+        $userService = new UserService();
+        $result = $userService->checkParams($filed, $this->params);
+        if (!$result) {
+            $this->response = [
+                'code' => BsEnum::PARAMS_ERROR_CODE,
+                'reason' => BsEnum::$codeMap[BsEnum::PARAMS_ERROR_CODE],
+            ];
+            return;
+        }
+        //TODO 去device_info里根据did拿验证码  1. 如果不存在或者验证码不对, 流程结束 2. 如果验证码正确, 向uid_did_map表里添加数据(如果数据已存在返回对应错误)
+        $deviceServie = new DeviceService();
+        $did = $this->params['did'];
+        $verifyCode = $this->params['verifyCode'];
+        $failCode = 0;
+        $result = $deviceServie->canAddDevice($did, $verifyCode, $failCode);
+        if (!$result) {
+            $this->response = [
+                'code' => $failCode,
+                'reason' => BsEnum::$codeMap[$failCode],
+            ];
+            return;
+        }
 
     }
 
