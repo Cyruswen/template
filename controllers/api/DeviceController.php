@@ -30,9 +30,13 @@ class DeviceController extends GraduationProjectBaseController
         }
         $this->uid = $uid;
         $deviceService = new DeviceService();
-        $result = $deviceService->getUserDevice($uid);
+        $arrRes = $deviceService->getUserDevice($uid);
+        $response = [];
+        foreach ($arrRes as $item) {
+            $result[] = $item['did'];
+        }
         $this->response = [
-            'result' => array_values($result),
+            'result' => $response,
         ];
     }
 
