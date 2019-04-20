@@ -28,9 +28,12 @@ class DeviceController extends GraduationProjectBaseController
                 'reason' => BsEnum::$codeMap[BsEnum::PARAMS_ERROR_CODE],
             ];
         }
+        $this->uid = $uid;
         $deviceService = new DeviceService();
         $result = $deviceService->getUserDevice($uid);
-        Flogger::info("device: " . json_encode($result));
+        $this->response = [
+            'result' => array_values($result),
+        ];
     }
 
     /**
