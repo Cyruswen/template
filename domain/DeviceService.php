@@ -11,6 +11,7 @@ use app\models\UserModel;
 use Flogger;
 use Util;
 use BsEnum;
+use yii\db\Exception;
 
 class DeviceService
 {
@@ -51,5 +52,30 @@ class DeviceService
             return false;
         }
         return true;
+    }
+
+    /**
+     * @param $uid
+     * @param $did
+     * @param $failCode
+     * @throws Exception
+     * @desc 更新uid_did_map 表
+     */
+    public function updateUidDidMap($uid, $did, &$failCode)
+    {
+        $table = "uid_did_map";
+        $data = ['did'];
+        $userModel = new UserModel();
+        $set = $userModel->getUserInfo($data, $table, "uid", $uid, true, "did", $did);
+        if (!empty($set)) {
+            $failCode = BsEnum::HAS_SUCH_DATA;
+            throw new Exception("数据已经添加!");
+        }
+        $saveData = [
+            'uid' => $uid,
+            'did' => $did,
+        ];
+        $userModel->saveBaseInfo($table, $saveData);
+
     }
 }

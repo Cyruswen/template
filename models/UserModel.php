@@ -48,9 +48,14 @@ class UserModel extends ActiveRecord
      * @param $uid
      * @return array
      */
-    public function getUserInfo($data, $tableName, $item, $value)
+    public function getUserInfo($data, $tableName, $item, $value, $and = false, $item2 = "", $value2 = "")
     {
-        $userInfo = (new Query())->select($data)->from($tableName)->where($item . "='" . $value . "'")->all();
+        if (!$and) {
+            $userInfo = (new Query())->select($data)->from($tableName)->where($item . "='" . $value . "'")->all();
+        } else {
+            $userInfo = (new Query())->select($data)->from($tableName)->where($item . "='" . $value . "'" . " and "
+            . $item2 . "='" . $value2 . "'")->all();
+        }
         return $userInfo[0];
     }
 
