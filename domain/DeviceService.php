@@ -47,7 +47,7 @@ class DeviceService
             $failCode = BsEnum::NO_SUCH_DEVICE;
             return false;
         }
-        if ($verifyCodeByDid['status'] === 0) {
+        if ($verifyCodeByDid['status'] == BsEnum::DEVICE_STATUS_NOT_USE) {
             $failCode = BsEnum::NOT_USE_DEVICE;
             return false;
         }
