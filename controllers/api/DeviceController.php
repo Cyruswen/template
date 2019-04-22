@@ -54,7 +54,7 @@ class DeviceController extends GraduationProjectBaseController
             ];
             return;
         }
-        //TODO 去device_info里根据did拿验证码  1. 如果不存在或者验证码不对, 返回错误码及错误原因
+        // 去device_info里根据did拿验证码  1. 如果不存在或者验证码不对, 返回错误码及错误原因
         // 2. 如果验证码正确, 向uid_did_map表里添加数据(如果数据已存在返回错误码及错误原因)
         $deviceServie = new DeviceService();
         $did = $this->params['did'];

@@ -40,11 +40,15 @@ class DeviceService
     public function canAddDevice($did, $verifyCode, &$failCode)
     {
         $table = "device_info";
-        $data = ['verify_code'];
+        $data = ['verify_code', 'status'];
         $userModel = new UserModel();
         $verifyCodeByDid = $userModel->getUserInfo($data, $table, "did", $did);
         if (empty($verifyCodeByDid)) {
             $failCode = BsEnum::NO_SUCH_DEVICE;
+            return false;
+        }
+        if ($verifyCodeByDid['status'] === 0) {
+            $failCode = BsEnum::NOT_USE_DEVICE;
             return false;
         }
         if ($verifyCodeByDid['verify_code'] !== $verifyCode) {

@@ -28,6 +28,7 @@ class BsEnum
     const NO_SUCH_DEVICE    = 10015; //设备号不存在
     const UN_CORRECT_VERIFY = 10016; //验证码不对
     const HAS_SUCH_DATA     = 10017; //数据已存在
+    const NOT_USE_DEVICE    = 10018; //设备未启用
 
     const MOBILE   = 'mobile';
     const USERNAME = 'userName';
@@ -51,5 +52,6 @@ class BsEnum
         self::NO_SUCH_DEVICE    => '设备号不存在, 请重新输入',
         self::UN_CORRECT_VERIFY => '设备序列号不正确',
         self::HAS_SUCH_DATA     => '该设备已添加',
+        self::NOT_USE_DEVICE    => '该设备未启用',
     ];
 }
