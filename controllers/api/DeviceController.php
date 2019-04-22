@@ -74,7 +74,7 @@ class DeviceController extends GraduationProjectBaseController
             $deviceServie->updateUidDidMap($uid, $did, $failCode);
         } catch (Exception $e)
         {
-            Flogger::info($e->getMessage());
+            Flogger::warning($e->getMessage());
             $this->response = [
                 'code' => $failCode,
                 'reason' => BsEnum::$codeMap[$failCode],
@@ -87,6 +87,28 @@ class DeviceController extends GraduationProjectBaseController
      */
     public function actionDelDevice()
     {
-
+        $filed = ['uid', 'did'];
+        $userService = new UserService();
+        $result = $userService->checkParams($filed, $this->params);
+        if (!$result) {
+            $this->response = [
+                'code' => BsEnum::PARAMS_ERROR_CODE,
+                'reason' => BsEnum::$codeMap[BsEnum::PARAMS_ERROR_CODE],
+            ];
+            return;
+        }
+        $deviceService = new DeviceService();
+        $uid = $this->params['uid'];
+        $did = $this->params['did'];
+        $failCode = 0;
+        try {
+            $deviceService->deleteDevice($uid, $did, $failCode);
+        } catch (Exception $e) {
+            Flogger::warning($e->getMessage());
+            $this->response = [
+                'code' => $failCode,
+                'reason' => BsEnum::$codeMap[$failCode],
+            ];
+        }
     }
 }

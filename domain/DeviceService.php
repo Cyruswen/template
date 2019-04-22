@@ -80,6 +80,24 @@ class DeviceService
             'did' => $did,
         ];
         $userModel->saveBaseInfo($table, $saveData);
+    }
 
+    /**
+     * @param $uid
+     * @param $did
+     * @param $failCode
+     * @throws Exception
+     */
+    public function deleteDevice($uid, $did, &$failCode)
+    {
+        $table = "uid_did_map";
+        $userModel = new UserModel();
+        $data = ['uid'];
+        $set = $userModel->getUserInfo($data, $table, "uid", $uid, true, "did", $did);
+        if (empty($set)) {
+            $failCode = BsEnum::NO_SUCH_DATA;
+            throw new Exception("数据不存在, 无法删除");
+        }
+        $userModel->deleteDevice($table, $uid, $did);
     }
 }

@@ -82,4 +82,15 @@ class UserModel extends ActiveRecord
     {
         Yii::$app->db->createCommand()->update($tableName, $data, "uid={$uid}")->execute();
     }
+
+    /**
+     * @param $tableName
+     * @param $uid
+     * @param $did
+     * @throws Exception
+     */
+    public function deleteDevice($tableName, $uid, $did)
+    {
+        Yii::$app->db->createCommand()->delete($tableName, "uid='" . $uid . "' AND did='" . $did . "'")->execute();
+    }
 }
