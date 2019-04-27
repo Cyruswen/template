@@ -108,15 +108,19 @@ class DeviceService
      * @return mixed
      * @throws Exception
      */
-    public function getDeviceStatus($did, &$failCode)
+    public function canUpdateDeviceTemperature($did, $verifyCode, &$failCode)
     {
         $table = "device_info";
         $userModel = new UserModel();
-        $data = ['status'];
+        $data = ['verify_code','status'];
         $set = $userModel->getUserInfo($data, $table, "did", $did);
         if (empty($set)) {
             $failCode = BsEnum::NO_SUCH_DEVICE;
             throw new Exception("该设备不存在");
+        }
+        if ($set['verify_code'] != $verifyCode) {
+            $failCode = BsEnum::UN_CORRECT_VERIFY;
+            throw new Exception("验证码不正确");
         }
         return $set['status'];
     }

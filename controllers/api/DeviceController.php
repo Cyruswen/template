@@ -118,7 +118,7 @@ class DeviceController extends GraduationProjectBaseController
     public function actionSaveTemperature()
     {
         //校验参数是否为空
-        $filed = ['did', 'temperature'];
+        $filed = ['did', 'temperature', 'verify_code'];
         $userService = new UserService();
         $result = $userService->checkParams($filed, $this->params);
         if (!$result) {
@@ -135,8 +135,9 @@ class DeviceController extends GraduationProjectBaseController
         $did = $this->params['did'];
         $failCode = 0;
         $temperature = $this->params['temperature'];
+        $verifyCode = $this->params['verify_code'];
         try{
-            $status = $deviceService->getDeviceStatus($did, $failCode);
+            $status = $deviceService->canUpdateDeviceTemperature($did, $verifyCode,$failCode);
             Flogger::info("设备状态为: " . $status);
             if ($status == BsEnum::DEVICE_STATUS_NOT_USE) {
                 $updateData = ["status" => BsEnum::DEVICE_STATUS_HAS_USED];
