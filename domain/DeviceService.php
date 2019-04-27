@@ -8,6 +8,7 @@
 
 namespace app\domain;
 use app\models\UserModel;
+use Codeception\Lib\Parser;
 use Flogger;
 use Util;
 use BsEnum;
@@ -99,5 +100,66 @@ class DeviceService
             throw new Exception("数据不存在, 无法删除");
         }
         $userModel->deleteDevice($table, $uid, $did);
+    }
+
+    /**
+     * @param $did
+     * @param $failCode
+     * @return mixed
+     * @throws Exception
+     */
+    public function getDeviceStatus($did, &$failCode)
+    {
+        $table = "device_info";
+        $userModel = new UserModel();
+        $data = ['status'];
+        $set = $userModel->getUserInfo($data, $table, "did", $did);
+        if (empty($set)) {
+            $failCode = BsEnum::NO_SUCH_DEVICE;
+            throw new Exception("该设备不存在");
+        }
+        return $set['status'];
+    }
+
+    /**
+     * @param $did
+     * @param $data
+     * @param $failCode
+     * @throws Exception
+     */
+    public function updateDeviceStatus($did, $data, &$failCode)
+    {
+        $table = "device_info";
+        $userModel = new UserModel();
+        try {
+            $userModel->updateInfoById($table, $data, $did, false);
+        } catch (Exception $e)
+        {
+            $failCode = BsEnum::SQL_UPDATE_FAIL;
+            throw new Exception("更新用户状态失败!");
+        }
+    }
+
+    /**
+     * @param $did
+     * @param $temperature
+     * @param $failCode
+     * @throws Exception
+     */
+    public function saveTemperatureInfo($did, $temperature, &$failCode) {
+        $table = "device_temperature";
+        $userModel = new UserModel();
+        $data = [
+          "did" => $did,
+          "temperature" => $temperature,
+          "update_time" => time(),
+        ];
+        try{
+            $userModel->saveBaseInfo($table, $data);
+        } catch (Exception $e) {
+            $failCode = BsEnum::SQL_INSERT_FAIL;
+            throw new Exception("温度保存失败!");
+        }
+
     }
 }

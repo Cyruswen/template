@@ -78,9 +78,13 @@ class UserModel extends ActiveRecord
      * @param $data
      * @throws Exception
      */
-    public function updateInfoByUid($tableName, $data, $uid)
+    public function updateInfoById($tableName, $data, $id, $flag = true)
     {
-        Yii::$app->db->createCommand()->update($tableName, $data, "uid={$uid}")->execute();
+        if ($flag) {
+            Yii::$app->db->createCommand()->update($tableName, $data, "uid={$id}")->execute();
+        } else {
+            Yii::$app->db->createCommand()->update($tableName, $data, "did={$id}")->execute();
+        }
     }
 
     /**

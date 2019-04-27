@@ -111,4 +111,45 @@ class DeviceController extends GraduationProjectBaseController
             ];
         }
     }
+
+    /**
+     * @desc 保存温度信息
+     */
+    public function actionSaveTemperature()
+    {
+        //校验参数是否为空
+        $filed = ['did', 'temperature'];
+        $userService = new UserService();
+        $result = $userService->checkParams($filed, $this->params);
+        if (!$result) {
+            $this->response = [
+                'code' => BsEnum::PARAMS_ERROR_CODE,
+                'reason' => BsEnum::$codeMap[BsEnum::PARAMS_ERROR_CODE],
+            ];
+            return;
+        }
+        //查看user_device表 did是否为空 status是否为1
+        // 1 如果结果为空, 返回错误码和错误原因
+        // 2 did不为空但是status为0 将状态置位1
+        $deviceService = new DeviceService();
+        $did = $this->params['did'];
+        $failCode = 0;
+        $temperature = $this->params['temperature'];
+        try{
+            $status = $deviceService->getDeviceStatus($did, $failCode);
+            Flogger::info("设备状态为: " . $status);
+            if ($status == BsEnum::DEVICE_STATUS_NOT_USE) {
+                $updateData = ["status" => BsEnum::DEVICE_STATUS_HAS_USED];
+                $deviceService->updateDeviceStatus($did, $updateData, $failCode);
+            }
+            //保存数据
+            $deviceService->saveTemperatureInfo($did, $temperature, $failCode);
+        } catch (Exception $e) {
+            Flogger::warning($e->getMessage());
+            $this->response = [
+                'code' => $failCode,
+                'reason' => BsEnum::$codeMap[$failCode],
+            ];
+        }
+    }
 }

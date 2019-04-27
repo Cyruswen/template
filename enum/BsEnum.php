@@ -10,6 +10,7 @@ class BsEnum
 {
     const EMAIL_LESS_LEN = 7;
     const DEVICE_STATUS_NOT_USE = 0;
+    const DEVICE_STATUS_HAS_USED = 1;
 
     const PARAMS_ERROR_CODE = 10000; //字段缺失
     const UN_VALID_MOBILE   = 10001; //手机号不合法
@@ -31,6 +32,7 @@ class BsEnum
     const HAS_SUCH_DATA     = 10017; //数据已存在
     const NOT_USE_DEVICE    = 10018; //设备未启用
     const NO_SUCH_DATA      = 10019; //数据不存在
+    const SQL_UPDATE_FAIL   = 10020; //数据库更新失败
 
     const MOBILE   = 'mobile';
     const USERNAME = 'userName';
@@ -56,5 +58,6 @@ class BsEnum
         self::HAS_SUCH_DATA     => '该设备已添加',
         self::NOT_USE_DEVICE    => '该设备未启用',
         self::NO_SUCH_DATA      => '数据不存在',
+        self::SQL_UPDATE_FAIL   => '数据库更新失败',
     ];
 }
