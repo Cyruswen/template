@@ -164,6 +164,16 @@ class DeviceService
             $failCode = BsEnum::SQL_INSERT_FAIL;
             throw new Exception("温度保存失败!");
         }
+    }
 
+    public function formTemperature($temperature)
+    {
+        $hundred = $temperature['hundred'];
+        $decade = $temperature['decade'];
+        $unit = $temperature['unit'];
+        $zeroPointOne = $temperature['zeroPointOne'];
+        $zeroPointZeroOne = $temperature['zeroPointZeroOne'];
+        $temperatureData = floatval($hundred . $decade . $unit . '.' . $zeroPointOne . $zeroPointZeroOne);
+        return $temperatureData;
     }
 }

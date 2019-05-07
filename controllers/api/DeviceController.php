@@ -134,8 +134,9 @@ class DeviceController extends GraduationProjectBaseController
         $deviceService = new DeviceService();
         $did = $this->params['did'];
         $failCode = 0;
-        $temperature = $this->params['temperature'];
+        $temperatureData = $this->params['temperature'];
         $verifyCode = $this->params['verify_code'];
+        $temperature = $deviceService->formTemperature($temperatureData);
         try{
             $status = $deviceService->canUpdateDeviceTemperature($did, $verifyCode,$failCode);
             Flogger::info("设备状态为: " . $status);
