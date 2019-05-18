@@ -113,7 +113,7 @@ class UserModel extends ActiveRecord
 
     public function getWarningTemperature($data, $tableName, $map, $warningTemperature)
     {
-        $selectData = (new Query())->select($data)->from($tableName)->where("uid" . "in" . $map . "AND" . "temperature" . ">'" . $warningTemperature . "'");
+        $selectData = (new Query())->select($data)->from($tableName)->where("uid" . "in" . $map . "AND" . "temperature" . ">'" . $warningTemperature . "'")->all();
         return $selectData;
     }
 }
