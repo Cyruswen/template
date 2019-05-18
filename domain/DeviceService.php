@@ -166,12 +166,12 @@ class DeviceService
         }
     }
 
-    public function getMaxCostData($maxCost)
+    public function getMaxCostData($maxCost, $compare, $orderBy)
     {
         $table = "decision";
         $userModel = new UserModel();
         $data = ["d_m", "d_c", "d_a", "d_n", "d_vx", "d_vy", "d_ax", "d_ay", "d_vz", "d_trscws", "d_ecscws", "d_tcscws", "d_cr","d_cs"];
-        $orderData = $userModel->getOrderData($table, $data, $maxCost, "d_trscws");
+        $orderData = $userModel->getOrderData($data, $table, $compare, $maxCost, $orderBy);
         return $orderData[0];
     }
 

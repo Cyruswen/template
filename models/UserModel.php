@@ -105,9 +105,9 @@ class UserModel extends ActiveRecord
      * @param $item
      * select $data from $tableName where aaa < $cost orderBy $item;
      */
-    public function getOrderData($tableName, $data, $cost, $item)
+    public function getOrderData($data, $tableName, $compare, $cost, $orderBy)
     {
-        $selectData = (new Query())->select($data)->from($tableName)->where("d_tcscws" . "<'" . $cost . "'")->orderBy($item)->all();
+        $selectData = (new Query())->select($data)->from($tableName)->where($compare . "<'" . $cost . "'")->orderBy($orderBy)->all();
         return $selectData;
     }
 }
