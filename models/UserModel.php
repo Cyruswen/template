@@ -97,4 +97,17 @@ class UserModel extends ActiveRecord
     {
         Yii::$app->db->createCommand()->delete($tableName, "uid='" . $uid . "' AND did='" . $did . "'")->execute();
     }
+
+    /**
+     * @param $tableName
+     * @param $data
+     * @param $cost
+     * @param $item
+     * select $data from $tableName where aaa < $cost orderBy $item;
+     */
+    public function getOrderData($tableName, $data, $cost, $item)
+    {
+        $selectData = (new Query())->select($data)->from($tableName)->where("d_tcscws" . "<'" . $cost . "'")->orderBy($item)->all();
+        return $selectData;
+    }
 }

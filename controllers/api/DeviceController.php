@@ -154,4 +154,25 @@ class DeviceController extends GraduationProjectBaseController
             ];
         }
     }
+
+    public function actionMaxCost()
+    {
+        //校验参数
+        $filed = ['cost'];
+        $userService = new UserService();
+        $result = $userService->checkParams($filed, $this->params);
+        if (!$result) {
+            $this->response = [
+                'code' => BsEnum::PARAMS_ERROR_CODE,
+                'reason' => BsEnum::$codeMap[BsEnum::PARAMS_ERROR_CODE],
+            ];
+            return;
+        }
+
+        $deviceService = new DeviceService();
+        $resultData = $deviceService->getMaxCostData($this->params['cost']);
+        $this->response = [
+            'result' => $resultData,
+        ];
+    }
 }
