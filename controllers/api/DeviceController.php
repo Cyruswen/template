@@ -217,4 +217,32 @@ class DeviceController extends GraduationProjectBaseController
             'result' => $resultData,
         ];
     }
+
+    public function actionGetWarningTemperature()
+    {
+        //校验参数
+        $filed = ['uid'];
+        $userService = new UserService();
+        $result = $userService->checkParams($filed, $this->params);
+        if (!$result) {
+            $this->response = [
+                'code' => BsEnum::PARAMS_ERROR_CODE,
+                'reason' => BsEnum::$codeMap[BsEnum::PARAMS_ERROR_CODE],
+            ];
+            return;
+        }
+        $deviceService = new DeviceService();
+
+        //获取用户可以查看的设备
+        $uidMap = $deviceService->getUserDevice($this->params['uid']);
+        $uidRes = [];
+        foreach ($uidMap as $item) {
+            $uidRes[] = $item;
+        }
+        $warningData = '30';
+        $resultData = $deviceService->getWarningData($uidRes, $warningData);
+        $this->response = [
+            'result' => $resultData,
+        ];
+    }
 }

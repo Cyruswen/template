@@ -110,4 +110,10 @@ class UserModel extends ActiveRecord
         $selectData = (new Query())->select($data)->from($tableName)->where($compare . "<'" . $cost . "'")->orderBy($orderBy)->all();
         return $selectData;
     }
+
+    public function getWarningTemperature($data, $tableName, $map, $warningTemperature)
+    {
+        $selectData = (new Query())->select($data)->from($tableName)->where("uid" . "in" . $map . "AND" . "temperature" . ">'" . $warningTemperature . "'");
+        return $selectData;
+    }
 }
