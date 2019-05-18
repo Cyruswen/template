@@ -172,7 +172,7 @@ class DeviceService
         $userModel = new UserModel();
         $data = ["d_m", "d_c", "d_a", "d_n", "d_vx", "d_vy", "d_ax", "d_ay", "d_vz", "d_trscws", "d_ecscws", "d_tcscws", "d_cr","d_cs"];
         $orderData = $userModel->getOrderData($table, $data, $maxCost, "d_trscws");
-        return $orderData[0];
+        return end($orderData);
     }
 
     public function formTemperature($temperature)
