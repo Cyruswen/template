@@ -191,7 +191,8 @@ class DeviceService
         $table = "device_temperature";
         $data = ['did', 'temperature', 'update_time'];
         $userModel = new UserModel();
-        $result = $userModel->getWarningTemperature($data, $table, $uidMap, $warningTemperature);
+        $lastWeek = strtotime("-7 days");
+        $result = $userModel->getWarningTemperature($data, $table, $warningTemperature, $lastWeek);
         return $result;
     }
 }
