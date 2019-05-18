@@ -242,8 +242,14 @@ class DeviceController extends GraduationProjectBaseController
         Flogger::info("获取到用户可以查看的设备:" . json_encode($uidRes));
         $warningData = '30';
         $resultData = $deviceService->getWarningData($uidRes, $warningData);
+        $result = [];
+        foreach ($resultData as $data) {
+            if ( in_array($data['did'], $uidRes) ) {
+                $result[] = $data;
+            }
+        }
         $this->response = [
-            'result' => $resultData,
+            'result' => $result,
         ];
     }
 }
