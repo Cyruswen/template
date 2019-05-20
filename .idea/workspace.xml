@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec01d749-ebfe-4d14-9939-7241c1ee6e10" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/controllers/api/DeviceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/api/DeviceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/domain/UserService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/DeviceService.php" beforeDir="false" afterPath="$PROJECT_DIR$/domain/DeviceService.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/api/DeviceController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="122" column="39" selection-start-line="122" selection-start-column="39" selection-end-line="122" selection-end-column="39" />
+            <state relative-caret-position="242">
+              <caret line="249" column="46" lean-forward="true" selection-start-line="249" selection-start-column="46" selection-end-line="249" selection-end-column="46" />
               <folding>
                 <element signature="e#119#146#0#PHP" expanded="true" />
               </folding>
@@ -31,7 +30,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/domain/UserService.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="249">
@@ -52,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/domain/DeviceService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3927">
-              <caret line="197" column="44" selection-start-line="197" selection-start-column="43" selection-end-line="197" selection-end-column="44" />
+            <state relative-caret-position="430">
+              <caret line="197" column="81" selection-start-line="197" selection-start-column="81" selection-end-line="197" selection-end-column="81" />
             </state>
           </provider>
         </entry>
@@ -103,10 +102,10 @@
         <option value="$PROJECT_DIR$/enum/BsEnum.php" />
         <option value="$PROJECT_DIR$/vendor/codeception/base/tests/data/app/view/index.php" />
         <option value="$PROJECT_DIR$/models/UserModel.php" />
-        <option value="$PROJECT_DIR$/domain/DeviceService.php" />
         <option value="$PROJECT_DIR$/components/GraduationProjectBaseController.php" />
         <option value="$PROJECT_DIR$/controllers/api/DeviceController.php" />
         <option value="$PROJECT_DIR$/domain/UserService.php" />
+        <option value="$PROJECT_DIR$/domain/DeviceService.php" />
       </list>
     </option>
   </component>
@@ -330,12 +329,12 @@
       <workItem from="1558143000111" duration="6066000" />
       <workItem from="1558193186267" duration="6193000" />
       <workItem from="1558226814908" duration="832000" />
-      <workItem from="1558338693096" duration="1618000" />
+      <workItem from="1558338693096" duration="2277000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188392000" />
+    <option name="totallyTimeSpent" value="189051000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -699,27 +698,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/domain/DeviceService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3927">
-          <caret line="197" column="44" selection-start-line="197" selection-start-column="43" selection-end-line="197" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/GraduationProjectBaseController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/api/DeviceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="122" column="39" selection-start-line="122" selection-start-column="39" selection-end-line="122" selection-end-column="39" />
-          <folding>
-            <element signature="e#119#146#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -730,6 +712,23 @@
           <folding>
             <element signature="e#108#133#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/api/DeviceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="249" column="46" lean-forward="true" selection-start-line="249" selection-start-column="46" selection-end-line="249" selection-end-column="46" />
+          <folding>
+            <element signature="e#119#146#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domain/DeviceService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="197" column="81" selection-start-line="197" selection-start-column="81" selection-end-line="197" selection-end-column="81" />
         </state>
       </provider>
     </entry>

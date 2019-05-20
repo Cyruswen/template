@@ -195,7 +195,7 @@ class DeviceService
         $resultData = $userModel->getWarningTemperature($data, $table, $warningTemperature, $lastWeek);
         $result = [];
         foreach ($resultData as $item) {
-            $item['update_time'] = date("Y-m-d H:i",$item['update_time']);
+            $item['update_time'] = date("Y-m-d H:i",$item['update_time'] + 8*3600);
             $result[] = $item;
         }
         return $result;
