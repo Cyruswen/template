@@ -186,7 +186,7 @@ class DeviceService
         return $temperatureData;
     }
 
-    public function getWarningData($uidMap, $warningTemperature)
+    public function getWarningData($uidMap, $warningTemperature) //device_temperature
     {
         $table = "device_temperature";
         $data = ['did', 'temperature', 'update_time'];

@@ -15,7 +15,12 @@ class GraduationProjectBaseController extends \yii\web\Controller
 
     public function beforeAction($action)
     {
-        $this->input = json_decode(file_get_contents("php://input"), true);
+        $request = \Yii::$app->request;
+        if ($request->isPost) {
+            $this->input = json_decode(file_get_contents("php://input"), true);
+        }else{
+            $this->input = $_GET;
+        }
         Flogger::info('收到参数' . json_encode($this->input, JSON_UNESCAPED_UNICODE));
         $this->params = $this->input;
         return true;

@@ -118,7 +118,7 @@ class DeviceController extends GraduationProjectBaseController
     public function actionSaveTemperature()
     {
         //校验参数是否为空
-        $filed = ['did', 'temperature', 'verify_code'];
+        $filed = ['did', 'hundred','decade', 'unit', 'zeroPointOne', 'zeroPointZeroOne', 'verify_code'];
         $userService = new UserService();
         $result = $userService->checkParams($filed, $this->params);
         if (!$result) {
@@ -134,7 +134,13 @@ class DeviceController extends GraduationProjectBaseController
         $deviceService = new DeviceService();
         $did = $this->params['did'];
         $failCode = 0;
-        $temperatureData = $this->params['temperature'];
+        $temperatureData = [
+            'hundred' => $this->params['hundred'],
+            'decade'  => $this->params['decade'],
+            'unit'    => $this->params['unit'],
+            'zeroPointOne' => $this->params['zeroPointOne'],
+            'zeroPointZeroOne' => $this->params['zeroPointZeroOne']
+        ];
         $verifyCode = $this->params['verify_code'];
         $temperature = $deviceService->formTemperature($temperatureData);
         try{
@@ -221,7 +227,7 @@ class DeviceController extends GraduationProjectBaseController
     public function actionGetWarningTemperature()
     {
         //校验参数
-        $filed = ['uid'];
+        $filed = ['uid']; // uid_did_map
         $userService = new UserService();
         $result = $userService->checkParams($filed, $this->params);
         if (!$result) {
