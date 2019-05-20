@@ -118,7 +118,7 @@ class DeviceController extends GraduationProjectBaseController
     public function actionSaveTemperature()
     {
         //校验参数是否为空
-        $filed = ['did', 'hundred','decade', 'unit', 'zeroPointOne', 'zeroPointZeroOne', 'verify_code'];
+        $filed = ['did', 'hundred', 'decade', 'unit', 'zeroPointOne', 'zeroPointZeroOne', 'verify_code'];
         $userService = new UserService();
         $result = $userService->checkParams($filed, $this->params);
         if (!$result) {
