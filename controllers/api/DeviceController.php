@@ -275,7 +275,7 @@ class DeviceController extends GraduationProjectBaseController
         $uid = $this->params['uid'];
         $did = $this->params['did'];
         $update_time = $this->params['update_time'];
-        $interval = $this->params['interval'];
+        $interval = intval($this->params['interval']);
         $this->uid = $uid;
         $deviceService = new DeviceService();
         $arrRestult = $deviceService->queryTemperature($did, $update_time, $interval);
