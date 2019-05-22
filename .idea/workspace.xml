@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec01d749-ebfe-4d14-9939-7241c1ee6e10" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/controllers/api/DeviceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/api/DeviceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/DeviceService.php" beforeDir="false" afterPath="$PROJECT_DIR$/domain/DeviceService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/UserModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/UserModel.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/api/DeviceController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="281" column="35" selection-start-line="281" selection-start-column="35" selection-end-line="281" selection-end-column="35" />
+            <state relative-caret-position="452">
+              <caret line="280" column="84" selection-start-line="280" selection-start-column="84" selection-end-line="280" selection-end-column="84" />
               <folding>
                 <element signature="e#119#146#0#PHP" expanded="true" />
               </folding>
@@ -54,17 +56,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/domain/DeviceService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="208" column="79" selection-start-line="208" selection-start-column="79" selection-end-line="208" selection-end-column="79" />
+            <state relative-caret-position="305">
+              <caret line="204" column="5" lean-forward="true" selection-start-line="204" selection-start-column="5" selection-end-line="204" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/UserModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="122" column="140" selection-start-line="122" selection-start-column="140" selection-end-line="122" selection-end-column="140" />
+            <state relative-caret-position="326">
+              <caret line="121" column="48" selection-start-line="121" selection-start-column="48" selection-end-line="121" selection-end-column="48" />
               <folding>
                 <element signature="e#110#118#0#PHP" expanded="true" />
               </folding>
@@ -115,9 +117,9 @@
         <option value="$PROJECT_DIR$/vendor/codeception/base/tests/data/app/view/index.php" />
         <option value="$PROJECT_DIR$/components/GraduationProjectBaseController.php" />
         <option value="$PROJECT_DIR$/domain/UserService.php" />
+        <option value="$PROJECT_DIR$/models/UserModel.php" />
         <option value="$PROJECT_DIR$/domain/DeviceService.php" />
         <option value="$PROJECT_DIR$/controllers/api/DeviceController.php" />
-        <option value="$PROJECT_DIR$/models/UserModel.php" />
       </list>
     </option>
   </component>
@@ -284,12 +286,12 @@
       <workItem from="1558226814908" duration="832000" />
       <workItem from="1558338693096" duration="4187000" />
       <workItem from="1558426501904" duration="1580000" />
-      <workItem from="1558506952439" duration="2009000" />
+      <workItem from="1558506952439" duration="2589000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="194550000" />
+    <option name="totallyTimeSpent" value="195130000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -653,23 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/domain/DeviceService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="208" column="79" selection-start-line="208" selection-start-column="79" selection-end-line="208" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/api/DeviceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="281" column="35" selection-start-line="281" selection-start-column="35" selection-end-line="281" selection-end-column="35" />
-          <folding>
-            <element signature="e#119#146#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/GraduationProjectBaseController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -679,10 +664,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/UserModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="122" column="140" selection-start-line="122" selection-start-column="140" selection-end-line="122" selection-end-column="140" />
+        <state relative-caret-position="326">
+          <caret line="121" column="48" selection-start-line="121" selection-start-column="48" selection-end-line="121" selection-end-column="48" />
           <folding>
             <element signature="e#110#118#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domain/DeviceService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="204" column="5" lean-forward="true" selection-start-line="204" selection-start-column="5" selection-end-line="204" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/api/DeviceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="280" column="84" selection-start-line="280" selection-start-column="84" selection-end-line="280" selection-end-column="84" />
+          <folding>
+            <element signature="e#119#146#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
