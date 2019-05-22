@@ -250,12 +250,36 @@ class DeviceController extends GraduationProjectBaseController
         $resultData = $deviceService->getWarningData($uidRes, $warningData);
         $result = [];
         foreach ($resultData as $data) {
-            if ( in_array($data['did'], $uidRes) ) {
+            if (in_array($data['did'], $uidRes)) {
                 $result[] = $data;
             }
         }
         $this->response = [
             'result' => $result,
+        ];
+    }
+
+    public function actionQueryTemperature()
+    {
+        //校验参数
+        $filed = ['uid', 'did', 'update_time'];
+        $userService = new UserService();
+        $result = $userService->checkParams($filed, $this->params);
+        if (!$result) {
+            $this->response = [
+                'code' => BsEnum::PARAMS_ERROR_CODE,
+                'reason' => BsEnum::$codeMap[BsEnum::PARAMS_ERROR_CODE],
+            ];
+            return;
+        }
+        $uid = $this->params['uid'];
+        $did = $this->params['did'];
+        $update_time = $this->params['update_time'];
+        $this->uid = $uid;
+        $deviceService = new DeviceService();
+        $arrRestult = $deviceService->queryTemperature($did, $update_time);
+        $this->response = [
+            'result' => $arrRestult,
         ];
     }
 }

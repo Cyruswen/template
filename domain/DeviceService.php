@@ -200,4 +200,12 @@ class DeviceService
         }
         return $result;
     }
+
+    public function queryTemperature($did, $update_time)
+    {
+        $table = "device_temperature";
+        $data = ['update_time', 'temperature'];
+        $userModel = new UserModel();
+        return $userModel->queryTemperature($table, $data, $did, $update_time);
+    }
 }

@@ -116,4 +116,11 @@ class UserModel extends ActiveRecord
         $selectData = (new Query())->select($data)->from($tableName)->where("update_time " . ">'" . $time . "'" . " and temperature " . ">'" . $warningTemperature . "'")->all();
         return $selectData;
     }
+
+    public function queryTemperature($tableName, $data, $did, $time)
+    {
+        $update_time = intval($time) + 3600;
+        $selectData = (new Query())->select($data)->from($tableName)->where("update_time " . ">'" . $time . "'" . " and update_time " . "<" . $update_time . "'" . " and did = " . $did)->all();
+        return $selectData;
+    }
 }
