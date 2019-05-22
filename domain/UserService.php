@@ -22,7 +22,7 @@ class UserService
     public function checkParams($checkFiled, $params)
     {
         foreach ($checkFiled as $value) {
-            if (empty($params[$value]) || !isset($params[$value])) {
+            if (!isset($params[$value])) {
                 Flogger::warning("缺少参数: " . $value);
                 return false;
             }
