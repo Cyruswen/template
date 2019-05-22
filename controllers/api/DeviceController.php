@@ -118,7 +118,7 @@ class DeviceController extends GraduationProjectBaseController
     public function actionSaveTemperature()
     {
         //校验参数是否为空
-        $filed = ['did', 'hundred', 'decade', 'unit', 'zeroPointOne', 'zeroPointZeroOne', 'verify_code'];
+        $filed = ['d', 'v', 't'];
         $userService = new UserService();
         $result = $userService->checkParams($filed, $this->params);
         if (!$result) {
@@ -132,17 +132,10 @@ class DeviceController extends GraduationProjectBaseController
         // 1 如果结果为空, 返回错误码和错误原因
         // 2 did不为空但是status为0 将状态置位1
         $deviceService = new DeviceService();
-        $did = $this->params['did'];
+        $did = $this->params['d'];
         $failCode = 0;
-        $temperatureData = [
-            'hundred' => $this->params['hundred'],
-            'decade'  => $this->params['decade'],
-            'unit'    => $this->params['unit'],
-            'zeroPointOne' => $this->params['zeroPointOne'],
-            'zeroPointZeroOne' => $this->params['zeroPointZeroOne']
-        ];
-        $verifyCode = $this->params['verify_code'];
-        $temperature = $deviceService->formTemperature($temperatureData);
+        $verifyCode = $this->params['v'];
+        $temperature = intval($this->params['t'])/100;
         try{
             $status = $deviceService->canUpdateDeviceTemperature($did, $verifyCode,$failCode);
             Flogger::info("设备状态为: " . $status);
