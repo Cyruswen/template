@@ -262,7 +262,7 @@ class DeviceController extends GraduationProjectBaseController
     public function actionQueryTemperature()
     {
         //校验参数
-        $filed = ['uid', 'did', 'update_time', 'interval'];
+        $filed = ['uid', 'did', 'update_time'];
         $userService = new UserService();
         $result = $userService->checkParams($filed, $this->params);
         if (!$result) {
@@ -271,6 +271,9 @@ class DeviceController extends GraduationProjectBaseController
                 'reason' => BsEnum::$codeMap[BsEnum::PARAMS_ERROR_CODE],
             ];
             return;
+        }
+        if (empty($this->params['interval'])) {
+            $this->params['interval'] = 3600;
         }
         $uid = $this->params['uid'];
         $did = $this->params['did'];
