@@ -212,9 +212,11 @@ class DeviceService
     public function formTemperatureData($temperatureData)
     {
         $temperature = [];
+        $i = 0;
         foreach ($temperatureData as $item) {
-            $temperature[]['temperature'] = $item['temperature'];
-            $temperature[]['update_time'] = date("Y-m-d H:i",$item['update_time']);
+            $temperature[$i]['temperature'] = $item['temperature'];
+            $temperature[$i]['update_time'] = date("Y-m-d H:i",$item['update_time']);
+            $i++;
         }
         return $temperature;
     }
