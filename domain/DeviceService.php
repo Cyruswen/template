@@ -213,8 +213,8 @@ class DeviceService
     {
         $temperature = [];
         foreach ($temperatureData as $item) {
-            $temperature['temperature'] = $item['temperature'];
-            $temperature['update_time'] = date("Y-m-d H:i",$item['update_time']);
+            $temperature[]['temperature'] = $item['temperature'];
+            $temperature[]['update_time'] = date("Y-m-d H:i",$item['update_time']);
         }
         return $temperature;
     }
