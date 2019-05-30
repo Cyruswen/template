@@ -208,4 +208,14 @@ class DeviceService
         $userModel = new UserModel();
         return $userModel->queryTemperature($table, $data, $did, $update_time, $interval);
     }
+
+    public function formTemperatureData($temperatureData)
+    {
+        $temperature = [];
+        foreach ($temperatureData as $item) {
+            $temperature['temperature'] = $item['temperature'];
+            $temperature['update_time'] = date("Y-m-d H:i",$item['update_time']);
+        }
+        return $temperature;
+    }
 }

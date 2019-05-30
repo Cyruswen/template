@@ -11,6 +11,7 @@ class BsEnum
     const EMAIL_LESS_LEN = 7;
     const DEVICE_STATUS_NOT_USE = 0;
     const DEVICE_STATUS_HAS_USED = 1;
+    const DEFAULT_TIME = 3600; //默认时间3600毫秒
 
     const PARAMS_ERROR_CODE = 10000; //字段缺失
     const UN_VALID_MOBILE   = 10001; //手机号不合法

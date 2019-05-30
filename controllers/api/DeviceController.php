@@ -239,6 +239,7 @@ class DeviceController extends GraduationProjectBaseController
             $uidRes[] = $item['did'];
         }
         Flogger::info("获取到用户可以查看的设备:" . json_encode($uidRes));
+        //待扩展
         $warningData = '30';
         $resultData = $deviceService->getWarningData($uidRes, $warningData);
         $result = [];
@@ -266,7 +267,7 @@ class DeviceController extends GraduationProjectBaseController
             return;
         }
         if (empty($this->params['interval'])) {
-            $this->params['interval'] = 3600;
+            $this->params['interval'] = BsEnum::DEFAULT_TIME;
         }
         $uid = $this->params['uid'];
         $did = $this->params['did'];
@@ -274,7 +275,8 @@ class DeviceController extends GraduationProjectBaseController
         $interval = intval($this->params['interval']);
         $this->uid = $uid;
         $deviceService = new DeviceService();
-        $arrRestult = $deviceService->queryTemperature($did, $update_time, $interval);
+        $arrTemperature = $deviceService->queryTemperature($did, $update_time, $interval);
+        $arrRestult = $deviceService->formTemperature($arrTemperature);
         $this->response = [
             'result' => $arrRestult,
         ];
