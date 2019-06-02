@@ -276,10 +276,11 @@ class DeviceController extends GraduationProjectBaseController
         $this->uid = $uid;
         $deviceService = new DeviceService();
         $arrTemperature = $deviceService->queryTemperature($did, $update_time, $interval);
-
+        $forecastTemperature = $deviceService->forecastTemperature($arrTemperature);
         $arrRestult = $deviceService->formTemperatureData($arrTemperature);
         $this->response = [
             'result' => $arrRestult,
+            'forecastTemperature' =>$forecastTemperature,
         ];
     }
 }
