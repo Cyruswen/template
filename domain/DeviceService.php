@@ -235,6 +235,6 @@ class DeviceService
             $weight[$index++] = round($i/$sum, 3);
         }
         //计算下一时刻温度
-        
+
     }
 }
