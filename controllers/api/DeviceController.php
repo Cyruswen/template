@@ -256,7 +256,7 @@ class DeviceController extends GraduationProjectBaseController
     public function actionQueryTemperature()
     {
         //校验参数
-        $filed = ['uid', 'did', 'update_time'];
+        $filed = ['uid', 'did'];
         $userService = new UserService();
         $result = $userService->checkParams($filed, $this->params);
         if (!$result) {
@@ -271,11 +271,12 @@ class DeviceController extends GraduationProjectBaseController
         }
         $uid = $this->params['uid'];
         $did = $this->params['did'];
-        $update_time = $this->params['update_time'];
+        $update_time = time();
         $interval = intval($this->params['interval']);
         $this->uid = $uid;
         $deviceService = new DeviceService();
         $arrTemperature = $deviceService->queryTemperature($did, $update_time, $interval);
+
         $arrRestult = $deviceService->formTemperatureData($arrTemperature);
         $this->response = [
             'result' => $arrRestult,

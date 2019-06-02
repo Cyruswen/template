@@ -220,4 +220,21 @@ class DeviceService
         }
         return $temperature;
     }
+
+    public function forecastTemperature($arrTemperature)
+    {
+        //温度数据按时间降序排序
+        array_multisort(array_column($arrTemperature,'update_time'),SORT_DESC,$arrTemperature);
+        //计算权值分配时的总份数
+        $count = count($arrTemperature);
+        $sum = (1 + $count)*$count/2;
+        //分配权值
+        $weight = [];
+        $index = 0;
+        for ($i = $count; $i > 0; $i--) {
+            $weight[$index++] = round($i/$sum, 3);
+        }
+        //计算下一时刻温度
+        
+    }
 }
