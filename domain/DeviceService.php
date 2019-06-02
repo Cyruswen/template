@@ -239,6 +239,6 @@ class DeviceService
         for($i = 0; $i < $count; $i++) {
             $temperature += $arrTemperature[$i]['temperature'] * $weight[$i];
         }
-        return round($temperature,3);
+        return round($temperature,2);
     }
 }

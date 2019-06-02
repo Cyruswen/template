@@ -253,6 +253,9 @@ class DeviceController extends GraduationProjectBaseController
         ];
     }
 
+    /**
+     * @desc 查询温度信息 根据interval字段确定时间,默认返回一小时 同时返回温度预测结果
+     */
     public function actionQueryTemperature()
     {
         //校验参数
@@ -279,8 +282,47 @@ class DeviceController extends GraduationProjectBaseController
         $forecastTemperature = $deviceService->forecastTemperature($arrTemperature);
         $arrRestult = $deviceService->formTemperatureData($arrTemperature);
         $this->response = [
-            'result' => $arrRestult,
             'forecastTemperature' =>$forecastTemperature,
+            'result' => $arrRestult,
         ];
+    }
+
+    //设置设备温度阈值 默认30度
+    public function actionChangeThreshold()
+    {
+        //校验参数
+        $filed = ['did', 'verifyCode', 'threshold'];
+        $userService = new UserService();
+        $result = $userService->checkParams($filed, $this->params);
+        if (!$result) {
+            $this->response = [
+                'code' => BsEnum::PARAMS_ERROR_CODE,
+                'reason' => BsEnum::$codeMap[BsEnum::PARAMS_ERROR_CODE],
+            ];
+            return;
+        }
+        $did = $this->params['did'];
+        $verifyCode = $this->params['verifyCode'];
+        $deviceService = new DeviceService();
+        $failCode = 0;
+        $result = $deviceService->canAddDevice($did, $verifyCode, $failCode);
+        if (!$result) {
+            $this->response = [
+                'code' => $failCode,
+                'reason' => BsEnum::$codeMap[$failCode],
+            ];
+            return;
+        }
+        $threshold = $this->params['threshold'];
+        try{
+            $updateData = ["threshold" => $threshold];
+            $deviceService->updateDeviceStatus($did, $updateData, $failCode);
+        } catch (Exception $e) {
+            Flogger::warning($e->getMessage());
+            $this->response = [
+                'code' => $failCode,
+                'reason' => BsEnum::$codeMap[$failCode],
+            ];
+        }
     }
 }
