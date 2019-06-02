@@ -215,6 +215,7 @@ class DeviceService
     public function formTemperatureData($temperatureData)
     {
         $count = count($temperatureData);
+        $tmp = $temperatureData;
         if ($count > BsEnum::TEMPERATURE_NUM) {
             $tmp = array_slice($temperatureData, 0, 60);
         }
