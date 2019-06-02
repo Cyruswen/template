@@ -217,7 +217,7 @@ class DeviceService
         $count = count($temperatureData);
         $tmp = $temperatureData;
         if ($count > BsEnum::TEMPERATURE_NUM) {
-            $tmp = array_slice($temperatureData, 0, 60);
+            $tmp = array_slice($temperatureData, 0, 10);
         }
         $temperature = [];
         $i = 0;
