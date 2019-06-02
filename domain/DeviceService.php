@@ -206,25 +206,30 @@ class DeviceService
         $table = "device_temperature";
         $data = ['update_time', 'temperature'];
         $userModel = new UserModel();
-        return $userModel->queryTemperature($table, $data, $did, $update_time, $interval);
+        $arrTemperature = $userModel->queryTemperature($table, $data, $did, $update_time, $interval);
+        //温度数据按时间降序排序
+        array_multisort(array_column($arrTemperature,'update_time'),SORT_DESC,$arrTemperature);
+        return $arrTemperature;
     }
 
     public function formTemperatureData($temperatureData)
     {
+        $count = count($temperatureData);
+        if ($count > BsEnum::TEMPERATURE_NUM) {
+            $tmp = array_slice($temperatureData, 0, 60);
+        }
         $temperature = [];
         $i = 0;
-        foreach ($temperatureData as $item) {
+        foreach ($tmp as $item) {
             $temperature[$i]['temperature'] = $item['temperature'];
-            $temperature[$i]['update_time'] = date("Y-m-d H:i",$item['update_time']+8*3600);
+            $temperature[$i]['update_time'] = date("Y-m-d H:i",$item['update_time'] + 8*3600);
             $i++;
         }
-        return $temperature;
+        return array_reverse($temperature);
     }
 
     public function forecastTemperature($arrTemperature)
     {
-        //温度数据按时间降序排序
-        array_multisort(array_column($arrTemperature,'update_time'),SORT_DESC,$arrTemperature);
         //计算权值分配时的总份数
         $count = count($arrTemperature);
         $sum = (1 + $count)*$count/2;
