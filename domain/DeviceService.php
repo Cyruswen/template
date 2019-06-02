@@ -237,7 +237,7 @@ class DeviceService
         //计算下一时刻温度
         $temperature = 0;
         for($i = 0; $i < $count; $i++) {
-            $temperature += $arrTemperature[$i] * $weight[$i];
+            $temperature += $arrTemperature[$i]['temperature'] * $weight[$i];
         }
         return $temperature;
     }
