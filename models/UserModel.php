@@ -120,7 +120,7 @@ class UserModel extends ActiveRecord
     public function queryTemperature($tableName, $data, $did, $time, $interval)
     {
         $update_time = intval($time) - $interval;
-        $selectData = (new Query())->select($data)->from($tableName)->where("update_time " . ">'" . $time . "'" . " and update_time " . "< '" . $update_time . "'" . " and did = " . $did)->all();
+        $selectData = (new Query())->select($data)->from($tableName)->where("update_time " . "<'" . $time . "'" . " and update_time " . "> '" . $update_time . "'" . " and did = " . $did)->all();
         return $selectData;
     }
 }
