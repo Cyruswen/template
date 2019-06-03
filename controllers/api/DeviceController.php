@@ -301,6 +301,8 @@ class DeviceController extends GraduationProjectBaseController
             ];
             return;
         }
+        $deviceService = new DeviceService();
+        $failCode = 0;
         $did = $this->params['did'];
         //如果fromPc参数为空, 表示来自PC端, 不需要校验验证码
         if (empty($this->params['fromPc'])) {
@@ -312,8 +314,6 @@ class DeviceController extends GraduationProjectBaseController
                 return;
             }
             $verifyCode = $this->params['verifyCode'];
-            $deviceService = new DeviceService();
-            $failCode = 0;
             $result = $deviceService->canAddDevice($did, $verifyCode, $failCode);
             if (!$result) {
                 $this->response = [
@@ -323,7 +323,6 @@ class DeviceController extends GraduationProjectBaseController
                 return;
             }
         }
-
         $threshold = $this->params['threshold'];
         try{
             $updateData = ["threshold" => $threshold];
