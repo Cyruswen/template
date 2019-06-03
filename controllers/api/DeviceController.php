@@ -291,7 +291,7 @@ class DeviceController extends GraduationProjectBaseController
     public function actionChangeThreshold()
     {
         //校验参数
-        $filed = ['did', 'verifyCode', 'threshold'];
+        $filed = ['did', 'threshold'];
         $userService = new UserService();
         $result = $userService->checkParams($filed, $this->params);
         if (!$result) {
@@ -301,18 +301,29 @@ class DeviceController extends GraduationProjectBaseController
             ];
             return;
         }
-        $did = $this->params['did'];
-        $verifyCode = $this->params['verifyCode'];
-        $deviceService = new DeviceService();
-        $failCode = 0;
-        $result = $deviceService->canAddDevice($did, $verifyCode, $failCode);
-        if (!$result) {
-            $this->response = [
-                'code' => $failCode,
-                'reason' => BsEnum::$codeMap[$failCode],
-            ];
-            return;
+        //如果fromPc参数为空, 表示来自PC端, 不需要校验验证码
+        if (empty($this->params['fromPc'])) {
+            if (empty($this->params['verifyCode'])) {
+                $this->response = [
+                    'code' => BsEnum::PARAMS_ERROR_CODE,
+                    'reason' => BsEnum::$codeMap[BsEnum::PARAMS_ERROR_CODE],
+                ];
+                return;
+            }
+            $did = $this->params['did'];
+            $verifyCode = $this->params['verifyCode'];
+            $deviceService = new DeviceService();
+            $failCode = 0;
+            $result = $deviceService->canAddDevice($did, $verifyCode, $failCode);
+            if (!$result) {
+                $this->response = [
+                    'code' => $failCode,
+                    'reason' => BsEnum::$codeMap[$failCode],
+                ];
+                return;
+            }
         }
+
         $threshold = $this->params['threshold'];
         try{
             $updateData = ["threshold" => $threshold];
