@@ -253,7 +253,7 @@ class DeviceService
      */
     public function getThreshold($uidDidMap){
         $userModel = new UserModel();
-        $data = ['threshold'];
+        $data = ['did','threshold'];
         $tableName = "device_info";
         $threshold = $userModel->queryThreshold($tableName, $data, $uidDidMap);
         return $threshold;

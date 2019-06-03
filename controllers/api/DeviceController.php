@@ -251,7 +251,7 @@ class DeviceController extends GraduationProjectBaseController
             }
         }
         Flogger::info("查询温度预警结果:" . json_encode($resultData));
-        
+
         $this->response = [
             'result' => $result,
         ];
