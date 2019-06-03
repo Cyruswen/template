@@ -241,20 +241,20 @@ class DeviceController extends GraduationProjectBaseController
         Flogger::info("获取到用户可以查看的设备:" . json_encode($userDidMap));
         //根据用户拥有权限的did到device_info表里查设备对应的阈值
         $threshold =  $deviceService->getThreshold($userDidMap);
-        Flogger::info("获取设备的阈值: " . $threshold);
-        /*
-        $warningData = '30';
-        $resultData = $deviceService->getWarningData($did, $warningData);
-        $result = [];
-        foreach ($resultData as $data) {
-            if (in_array($data['did'], $uidRes)) {
-                $result[] = $data;
+        Flogger::info("获取设备的阈值: " . json_encode($threshold));
+        //遍历查询设备温度
+        $resultData = [];
+        foreach ($threshold as $item) {
+            $warningData = $deviceService->getWarningData($item['did'], $item['threshold']);
+            if (!empty($warningData)) {
+                $resultData[] = $warningData;
             }
         }
+        Flogger::info("查询温度预警结果:" . json_encode($resultData));
+        
         $this->response = [
             'result' => $result,
         ];
-        */
     }
 
     /**
