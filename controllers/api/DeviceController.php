@@ -301,6 +301,7 @@ class DeviceController extends GraduationProjectBaseController
             ];
             return;
         }
+        $did = $this->params['did'];
         //如果fromPc参数为空, 表示来自PC端, 不需要校验验证码
         if (empty($this->params['fromPc'])) {
             if (empty($this->params['verifyCode'])) {
@@ -310,7 +311,6 @@ class DeviceController extends GraduationProjectBaseController
                 ];
                 return;
             }
-            $did = $this->params['did'];
             $verifyCode = $this->params['verifyCode'];
             $deviceService = new DeviceService();
             $failCode = 0;
