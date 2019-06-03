@@ -111,9 +111,9 @@ class UserModel extends ActiveRecord
         return $selectData;
     }
 
-    public function getWarningTemperature($data, $tableName, $warningTemperature, $time)
+    public function getWarningTemperature($data, $tableName, $warningTemperature, $time, $did)
     {
-        $selectData = (new Query())->select($data)->from($tableName)->where("update_time " . ">'" . $time . "'" . " and temperature " . ">'" . $warningTemperature . "'")->all();
+        $selectData = (new Query())->select($data)->from($tableName)->where("update_time " . ">'" . $time . "'" . " and temperature " . ">'" . $warningTemperature . "'" . " and did " . "='" . $did . "'")->all();
         return $selectData;
     }
 
@@ -121,6 +121,22 @@ class UserModel extends ActiveRecord
     {
         $update_time = intval($time) - $interval;
         $selectData = (new Query())->select($data)->from($tableName)->where("update_time " . "<'" . $time . "'" . " and update_time " . "> '" . $update_time . "'" . " and did = " . $did)->all();
+        return $selectData;
+    }
+
+    public function queryThreshold($tableName, $data, $uidDidMap, $flag = true){
+        $str = " ";
+        if ($flag) {
+            foreach ($uidDidMap as $item) {
+                $str = $str . "did=" . $item . " or ";
+            }
+        } else {
+            foreach ($uidDidMap as $item) {
+                $str = $str . "uid=" . $item . " or ";
+            }
+        }
+        $strwhere = substr($str, 0, strlen($str)-3);
+        $selectData = (new Query())->select($data)->from($tableName)->where($strwhere)->all();
         return $selectData;
     }
 }

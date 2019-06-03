@@ -234,14 +234,17 @@ class DeviceController extends GraduationProjectBaseController
 
         //获取用户可以查看的设备
         $uidMap = $deviceService->getUserDevice($this->params['uid']);
-        $uidRes = [];
+        $userDidMap = [];
         foreach ($uidMap as $item) {
-            $uidRes[] = $item['did'];
+            $userDidMap[] = $item['did'];
         }
-        Flogger::info("获取到用户可以查看的设备:" . json_encode($uidRes));
-        //待扩展
+        Flogger::info("获取到用户可以查看的设备:" . json_encode($userDidMap));
+        //根据用户拥有权限的did到device_info表里查设备对应的阈值
+        $threshold =  $deviceService->getThreshold($userDidMap);
+        Flogger::info("获取设备的阈值: " . $threshold);
+        /*
         $warningData = '30';
-        $resultData = $deviceService->getWarningData($uidRes, $warningData);
+        $resultData = $deviceService->getWarningData($did, $warningData);
         $result = [];
         foreach ($resultData as $data) {
             if (in_array($data['did'], $uidRes)) {
@@ -251,6 +254,7 @@ class DeviceController extends GraduationProjectBaseController
         $this->response = [
             'result' => $result,
         ];
+        */
     }
 
     /**

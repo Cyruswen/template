@@ -186,13 +186,13 @@ class DeviceService
         return $temperatureData;
     }
 
-    public function getWarningData($uidMap, $warningTemperature) //device_temperature
+    public function getWarningData($did, $warningTemperature) //device_temperature
     {
         $table = "device_temperature";
         $data = ['did', 'temperature', 'update_time'];
         $userModel = new UserModel();
         $lastWeek = strtotime("-7 days");
-        $resultData = $userModel->getWarningTemperature($data, $table, $warningTemperature, $lastWeek);
+        $resultData = $userModel->getWarningTemperature($data, $table, $warningTemperature, $lastWeek, $did);
         $result = [];
         foreach ($resultData as $item) {
             $item['update_time'] = date("Y-m-d H:i",$item['update_time'] + 8*3600);
@@ -246,5 +246,16 @@ class DeviceService
             $temperature += $arrTemperature[$i]['temperature'] * $weight[$i];
         }
         return round($temperature,2);
+    }
+
+    /**
+     * @desc 获得设备阈值
+     */
+    public function getThreshold($uidDidMap){
+        $userModel = new UserModel();
+        $data = ['threshold'];
+        $tableName = "device_info";
+        $threshold = $userModel->queryThreshold($tableName, $data, $uidDidMap);
+        return $threshold;
     }
 }
